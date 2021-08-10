@@ -5,11 +5,21 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "format": "prettier '{data,components,pages,utils}/**/*.{js,ts,tsx}' --write",
+    "create-sitemap": "node ./utils/sitemap.ts"
   },
   "dependencies": {
+    "lozad": "^1.16.0",
     "next": "^10.0.0",
     "react": "17.0.1",
     "react-dom": "17.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^15.0.1",
+    "@types/react": "^17.0.4",
+    "prettier": "^2.3.2",
+    "sitemap": "^7.0.0",
+    "typescript": "^4.2.4"
   }
 }

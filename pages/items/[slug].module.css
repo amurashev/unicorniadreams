@@ -1,0 +1,31 @@
+.description {
+  white-space: pre-line;
+}
+
+.content {
+  composes: content from '../../styles/common.css';
+}
+
+.price {
+  font-size: 28px;
+    line-height: 36px;
+    font-weight: 700;
+}
+
+.button {
+  font-family: "GT-America-Condensed-Bold",sans-serif;
+  font-size: 11px;
+  line-height: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+  padding: 14px 35px 12px;
+  background-color: #f778b9;
+  color: #fff;
+  margin-top: 24px;
+}
+
+.button:hover {
+  text-decoration: none;
+}

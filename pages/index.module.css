@@ -1,0 +1,42 @@
+
+.backgroundBlock {
+  display: flex !important;
+  justify-content: center !important;
+  position: relative !important;
+  min-height: 178px;
+}
+
+.backgroundImage {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex !important;
+  justify-content: center !important;
+  position: relative !important;
+  min-height: 178px;
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.category {
+  width: 25%;
+  padding: 10px
+}
+
+.listings {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 32px;
+}
+
+.listing {
+  width: 25%;
+  padding: 10px
+}
