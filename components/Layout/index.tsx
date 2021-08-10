@@ -56,7 +56,7 @@ export default function Layout({ children }) {
       <main className={styles.content}>{children}</main>
 
       <footer className={styles.footer}>
-        <div className={styles.footerContent}>© 2021 UnicorniaDreams</div>
+        <div className={styles.footerContent}>© 2019-2021 UnicorniaDreams</div>
       </footer>
     </div>
   )

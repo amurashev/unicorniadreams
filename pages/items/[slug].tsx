@@ -66,11 +66,12 @@ export default function Item({
   similarListings: ListingType[]
 }) {
   const h1 = listing.meta ? listing.meta.h1 : listing.title
+  const arrival = 'Aug 20-Sep 14' // TODO
 
   return (
     <Layout>
       <Head>
-        <title>{listing.title} - UnicorniaDreams</title>
+        <title>Buy handmade {listing.title} - Unicornia Dreams</title>
         {listing.meta && (
           <>
             <meta name="description" content={listing.meta.description} />
@@ -81,7 +82,11 @@ export default function Item({
 
       <div className={styles.content}>
         <div>
-          <img className="lozad" data-src={listing.mainImage.large} />
+          <img
+            src={listing.mainImage.large}
+            alt={`${h1} image`}
+            className={`lozad`}
+          />
         </div>
         <h1>{h1}</h1>
         <div className={styles.price}>${listing.price}</div>
@@ -101,23 +106,25 @@ export default function Item({
             <div>Handmade</div>
           </div>
           <div>
-            <div>Materials: {listing.materials.join()}</div>
+            <div>Materials: {listing.materials.join(', ')}</div>
           </div>
         </div>
         <div>
           <h2>Shipping</h2>
-          Estimated arrival: <span>Aug 20-Sep 14</span>
+          Estimated arrival: <span>{arrival}</span>
         </div>
         <div>
           <h2>Description</h2>
           <p
             className={styles.description}
-            dangerouslySetInnerHTML={{ __html: listing.description }}
+            dangerouslySetInnerHTML={{
+              __html: `<!--googleoff: all--> <!--noindex-->${listing.description} <!--/noindex--> <!--googleon: all-->'`,
+            }}
           ></p>
         </div>
 
         <div>
-          <div>Tags: {listing.tags.join()}</div>
+          <div>Tags: {listing.tags.join(', ')}</div>
         </div>
 
         <div>

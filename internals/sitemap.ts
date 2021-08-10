@@ -16,7 +16,7 @@ let commonPages = [
     url: '/',
   },
   {
-    url: '/contacts',
+    url: '/about',
   },
   {
     url: '/collections',
@@ -59,5 +59,3 @@ try {
   console.log(`${outputFilePath} is not created: ${err}`)
   process.exit(1)
 }
-
-// export {}

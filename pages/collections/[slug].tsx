@@ -10,10 +10,9 @@ import CategoryHeader from '../../components/CategoryHeader'
 import CATEGORIES from '../../data/categories.json'
 
 import { getShopSection, getShop } from '../../utils/etsy'
-import { mapCategory, mapListing } from '../../utils/data'
+import { mapCategory } from '../../utils/data'
 import {
   getCategoryIdBySlug,
-  getIsRawListingCorrect,
   getIsCategoryShown,
 } from '../../utils/helpers'
 import { Category, Listing as ListingType } from '../../utils/types'
@@ -38,15 +37,13 @@ export async function getStaticProps({ params }) {
   const section = await getShopSection(categoryId)
   const category = mapCategory(section)
 
-  const listings = category.listings //.filter((item) => item.isOn)
+  const listings = category.listings
 
   const shop = await getShop()
   const similarCategories = shop.Sections.map(mapCategory)
     .filter((item) => item.id !== categoryId)
     .filter(getIsCategoryShown)
     .sort((a, b) => a.order - b.order)
-
-  // console.warn("getStaticProps", params, categoryId, section);
 
   return {
     props: {
@@ -69,7 +66,7 @@ export default function Item({
   return (
     <Layout>
       <Head>
-        <title>{category.meta.title} - UnicorniaDreams</title>
+        <title>Buy handmade {category.meta.title} - Unicornia Dreams</title>
         <meta name="description" content={category.meta.description} />
       </Head>
       <CategoryHeader item={category} />
