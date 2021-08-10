@@ -7,9 +7,11 @@
     "build": "next build",
     "start": "next start",
     "format": "prettier '{data,components,pages,utils}/**/*.{js,ts,tsx}' --write",
-    "create-sitemap": "node ./utils/sitemap.ts"
+    "prod": "yarn create-sitemap && yarn build",
+    "create-sitemap": "node ./internals/sitemap.ts"
   },
   "dependencies": {
+    "dotenv": "^10.0.0",
     "lozad": "^1.16.0",
     "next": "^10.0.0",
     "react": "17.0.1",
