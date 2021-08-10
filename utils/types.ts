@@ -29,6 +29,7 @@ export type Listing = {
   meta?: {
     h1: string
     description: string
+    title: string
   }
 }
 
@@ -46,5 +47,6 @@ export type Category = {
   meta?: {
     h1: string
     description: string
+    title: string
   }
 }

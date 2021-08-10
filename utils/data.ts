@@ -22,7 +22,7 @@ export const mapListing = (raw: any): Listing => {
     id: raw.listing_id,
     title: raw.title,
     description: raw.description,
-    isOn: true,
+    isOn: false,
     isOnHome: false,
     etsyUrl: raw.url,
     price: raw.price,
@@ -92,9 +92,9 @@ export const mapCategory = (raw: any): Category => {
   }
 
   if (raw.Listings) {
-    newCategory.listings = raw.Listings.filter(getIsRawListingCorrect).map(
-      mapListing
-    )
+    newCategory.listings = raw.Listings.filter(getIsRawListingCorrect)
+      .map(mapListing)
+      .filter((item) => item.isOn)
   }
 
   const fixedData = CATEGORIES[raw.shop_section_id]

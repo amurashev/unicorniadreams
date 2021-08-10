@@ -69,6 +69,7 @@
   background-color: #fff;
   color: #000000;
   margin-top: 24px;
+  cursor: pointer;
 }
 
 .button:hover {

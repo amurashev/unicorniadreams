@@ -1,7 +1,8 @@
 import Head from 'next/head'
-import Link from 'next/link'
 
 import styles from './index.module.css'
+
+import META from '../data/meta.json'
 
 import { getShop } from '../utils/etsy'
 import { mapListing, mapCategory } from '../utils/data'
@@ -9,7 +10,6 @@ import { getIsCategoryShown, getIsRawListingCorrect } from '../utils/helpers'
 
 import Layout from '../components/Layout'
 import Listing from '../components/Listing'
-import Category from '../components/Category'
 import BaseBackgroundSection from '../components/BaseBackgroundSection'
 
 export async function getStaticProps() {
@@ -30,27 +30,19 @@ export async function getStaticProps() {
   }
 }
 
-const meta = {
-  title: 'UnicorniaDreams: Magic home decor & baby toys',
-  description: `Hello! My name is Alena! 
-    All my life I lived in a huge noisy metropolis, but my soul always dreamed of the sea. 
-    And then my family and I decided to move to the small sunny town of Anapa. 
-    This city is located on the shores of the Black Sea and it is the best place for creativity!`,
-}
-
 export default function Home({ shop, listings, categories }) {
   console.warn('props', shop, categories, listings)
   return (
     <div>
       <Layout>
         <Head>
-          <title>{meta.title}</title>
-          <meta name="description" content={meta.description} />
+          <title>{META.home.title}</title>
+          <meta name="description" content={META.home.description} />
         </Head>
 
         <BaseBackgroundSection
           title="Collections"
-          description="Welcome to world of stuffed toys Welcome to world of stuffed toys Welcome to world of stuffed toys Welcome to world of stuffed toys"
+          description={META.home.content.collections}
           image="/images/categories/32651447.jpg"
           url="/collections"
           buttonLabel="See collections"
@@ -68,7 +60,7 @@ export default function Home({ shop, listings, categories }) {
 
         <BaseBackgroundSection
           title="My story"
-          description="Hello! My name is Alena! All my life I lived in a huge noisy metropolis, but my soul always dreamed of the sea. And then my family and I decided to move to the small sunny town of Anapa. This city is located on the shores of the Black Sea and it is the best place for creativity!"
+          description={META.about.content.short}
           image="/images/about.jpg"
           url="/about"
           buttonLabel="Read story"

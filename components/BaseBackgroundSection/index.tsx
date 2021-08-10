@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import styles from './styles.module.css'
 
 type Props = {
@@ -28,9 +29,9 @@ export default function BaseBackgroundSection({
             <div className={styles.description}>{description}</div>
           )}
           {url && buttonLabel && (
-            <a href={url} className={styles.button}>
-              {buttonLabel}
-            </a>
+            <Link href={url}>
+              <span className={styles.button}>{buttonLabel}</span>
+            </Link>
           )}
           {children && <div className={styles.children}>{children}</div>}
         </div>

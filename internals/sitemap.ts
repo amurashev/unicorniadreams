@@ -26,7 +26,7 @@ let commonPages = [
 commonPages = commonPages
   .concat(
     categories.map((item) => ({
-      url: `/${item}`,
+      url: `/collections/${item}`,
     }))
   )
   .concat(
