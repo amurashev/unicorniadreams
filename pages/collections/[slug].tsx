@@ -66,8 +66,6 @@ export default function Item({
   listings: ListingType[]
   similarCategories: Category[]
 }) {
-  console.warn('cat page', category, listings, similarCategories)
-
   return (
     <Layout>
       <Head>

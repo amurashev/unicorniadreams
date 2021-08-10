@@ -31,7 +31,6 @@ export async function getStaticProps() {
 }
 
 export default function Home({ shop, listings, categories }) {
-  console.warn('props', shop, categories, listings)
   return (
     <div>
       <Layout>

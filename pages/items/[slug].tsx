@@ -65,7 +65,6 @@ export default function Item({
   category: Category
   similarListings: ListingType[]
 }) {
-  console.warn('listing', listing, category, similarListings)
   const h1 = listing.meta ? listing.meta.h1 : listing.title
 
   return (
