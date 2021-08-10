@@ -63,3 +63,5 @@ try {
   console.log(`${outputFile} is not created: ${err}`)
   process.exit(1)
 }
+
+export {}

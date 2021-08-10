@@ -2,7 +2,7 @@ import styles from './styles.module.css'
 
 type Props = {
   title?: string
-  description: string
+  description?: string
   url?: string
   image?: string
   buttonLabel?: string

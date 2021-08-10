@@ -8,7 +8,8 @@ const request = async (url: string, options?: object) => {
   const errorMessage = await response.text()
 
   const error = new Error(errorMessage)
-  error.response = response
+  // TODO: skip for now
+  // error.response = response
   throw error
 }
 
