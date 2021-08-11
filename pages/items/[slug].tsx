@@ -47,12 +47,12 @@ export async function getStaticProps({ params }) {
 
   console.info('\nListing is fetched: ', params.slug)
   console.info('\n---------------------------------')
-  await sleep(3000)
+  await sleep(2000)
 
   const shippingInfoList = await getListingShippingInfo(id)
   console.info('\nListing shipping info is fetched: ', params.slug)
   console.info('\n---------------------------------')
-  await sleep(3000)
+  await sleep(2000)
 
   const shippingInfoRaw = shippingInfoList.find(
     (item) => !item.destination_country_id
@@ -68,7 +68,7 @@ export async function getStaticProps({ params }) {
     const section = await getShopSection(listing.categoryId)
     console.info('\nSection is fetched: ', listing.categoryId)
     console.info('\n---------------------------------')
-    await sleep(3000)
+    await sleep(2000)
 
     category = mapCategory(section)
     const listings = category.listings
