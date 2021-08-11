@@ -6,10 +6,18 @@ import Listing from '../../components/Listing'
 import styles from './[slug].module.css'
 
 import LISTINGS from '../../data/listings.json'
-import { mapListing, mapCategory } from '../../utils/data'
+import { mapListing, mapCategory, mapShippingInfo } from '../../utils/data'
 import { getListingIdBySlug } from '../../utils/helpers'
-import { getListing, getShopSection } from '../../utils/etsy'
-import { Category, Listing as ListingType } from '../../utils/types'
+import {
+  getListing,
+  getShopSection,
+  getListingShippingInfo,
+} from '../../utils/etsy'
+import {
+  Category,
+  Listing as ListingType,
+  ShippingInfo,
+} from '../../utils/types'
 
 export async function getStaticPaths() {
   const listings = Object.keys(LISTINGS).map((key) => LISTINGS[key].slug)
@@ -26,30 +34,62 @@ export async function getStaticPaths() {
   }
 }
 
+async function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
+
 export async function getStaticProps({ params }) {
+  console.info('\n---------------------------------')
+
   const id = getListingIdBySlug(params.slug)
   const data = await getListing(id)
   const listing = mapListing(data)
 
-  const section = await getShopSection(listing.categoryId)
-  const category = mapCategory(section)
-  const listings = category.listings
+  console.info('\nListing is fetched: ', params.slug)
+  console.info('\n---------------------------------')
+  await sleep(3000)
 
-  let indexOfCurrentElement = 0
-  listings.forEach((item, i) => {
-    if (item.id === id) {
-      indexOfCurrentElement = i
-    }
-  })
+  const shippingInfoList = await getListingShippingInfo(id)
+  console.info('\nListing shipping info is fetched: ', params.slug)
+  console.info('\n---------------------------------')
+  await sleep(3000)
 
-  const similarListings = [
-    ...category.listings.slice(indexOfCurrentElement),
-    ...category.listings.slice(0, indexOfCurrentElement),
-  ].slice(1, 4)
+  const shippingInfoRaw = shippingInfoList.find(
+    (item) => !item.destination_country_id
+  )
+  const shippingInfo = shippingInfoRaw
+    ? mapShippingInfo(shippingInfoRaw)
+    : undefined
+
+  let category
+  let similarListings = []
+
+  if (listing.categoryId) {
+    const section = await getShopSection(listing.categoryId)
+    console.info('\nSection is fetched: ', listing.categoryId)
+    console.info('\n---------------------------------')
+    await sleep(3000)
+
+    category = mapCategory(section)
+    const listings = category.listings
+
+    let indexOfCurrentElement = 0
+    listings.forEach((item, i) => {
+      if (item.id === id) {
+        indexOfCurrentElement = i
+      }
+    })
+
+    similarListings = [
+      ...listings.slice(indexOfCurrentElement),
+      ...listings.slice(0, indexOfCurrentElement),
+    ].slice(1, 4)
+  }
 
   return {
     props: {
       listing,
+      shippingInfo,
       category,
       similarListings,
     },
@@ -58,15 +98,17 @@ export async function getStaticProps({ params }) {
 
 export default function Item({
   listing,
+  shippingInfo,
   category,
   similarListings,
 }: {
   listing: ListingType
-  category: Category
+  shippingInfo: ShippingInfo
+  category?: Category
   similarListings: ListingType[]
 }) {
   const h1 = listing.meta ? listing.meta.h1 : listing.title
-  const arrival = 'Aug 20-Sep 14' // TODO
+  const arrival = 'Aug 27-Sep 14' // TODO
 
   return (
     <Layout>
@@ -90,7 +132,11 @@ export default function Item({
         </div>
         <h1>{h1}</h1>
         <div className={styles.price}>${listing.price}</div>
-        <div>{listing.price && <div>This item ships free.</div>}</div>
+        <div>
+          {shippingInfo && shippingInfo.primaryCost === '0.00' && (
+            <div>This item ships free.</div>
+          )}
+        </div>
         <div>
           <a
             href={listing.etsyUrl}
@@ -137,11 +183,13 @@ export default function Item({
             ))}
           </div>
         </div>
-        <div>
-          <Link href={category.url}>
-            <a>Back to collection</a>
-          </Link>
-        </div>
+        {category && (
+          <div>
+            <Link href={category.url}>
+              <a>Back to collection</a>
+            </Link>
+          </div>
+        )}
       </div>
     </Layout>
   )

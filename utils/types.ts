@@ -5,6 +5,19 @@ export type Image = {
   full: string
 }
 
+export type ShippingInfo = {
+  id: number
+  currencyCode: string
+  destinationCountryId: null | number
+  destinationCountryName: string
+  listingId: number
+  originCountryId: number
+  originCountryName: string
+  primaryCost: string
+  regionId: null
+  secondaryCost: string
+}
+
 export type Listing = {
   id: number
   title: string

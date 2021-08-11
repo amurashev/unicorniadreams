@@ -43,10 +43,21 @@ export const getShopSection = async (sectionId: number) => {
 
 export const getListing = async (listingId: number) => {
   const data = {
-    includes: ['MainImage', 'Images', 'ShippingInfo'].join(','),
+    includes: ['MainImage', 'Images'].join(','),
   }
 
   const response = await EtsyRequest(`/listings/${listingId}`, data)
 
   return response.results[0]
+}
+
+
+export const getListingShippingInfo = async (listingId: number) => {
+  const data = {
+    includes: [''].join(','),
+  }
+
+  const response = await EtsyRequest(`/listings/${listingId}/shipping/info`, data)
+
+  return response.results
 }

@@ -43,17 +43,6 @@ export const mapListing = (raw: any): Listing => {
     newListing.mainImage = mapImage(raw.MainImage)
   }
 
-  if (raw.ShippingInfo) {
-    const shippingInfoMain = raw.ShippingInfo.find(
-      (item) => !item.destination_country_id
-    )
-    newListing.shippingInfo = {
-      // TODO: Check
-      isFree: shippingInfoMain.primary_cost === '0.00',
-      primaryCost: shippingInfoMain.primary_cost,
-    }
-  }
-
   if (raw.Images) {
     newListing.images = raw.Images.map(mapImage)
   }
@@ -97,7 +86,8 @@ export const mapCategory = (raw: any): Category => {
       .filter((item) => item.isOn)
   }
 
-  const fixedData = CATEGORIES[raw.shop_section_id]
+
+  const fixedData = CATEGORIES[id]
 
   if (fixedData) {
     newCategory = {
@@ -111,4 +101,21 @@ export const mapCategory = (raw: any): Category => {
     }
   }
   return newCategory
+}
+
+export const mapShippingInfo = (raw: any) => {
+  let data = {
+    id: raw.shipping_info_id,
+    currencyCode: raw.currency_code,
+    destinationCountryId: raw.destination_country_id,
+    destinationCountryName: raw.destination_country_name,
+    listingId: raw.listing_id,
+    originCountryId: raw.origin_country_id,
+    originCountryName: raw.origin_country_name,
+    primaryCost: raw.primary_cost,
+    regionId: raw.region_id,
+    secondaryCost: raw.secondary_cost,
+  }
+
+  return data
 }
