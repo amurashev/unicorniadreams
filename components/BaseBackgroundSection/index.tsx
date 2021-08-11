@@ -19,7 +19,12 @@ export default function BaseBackgroundSection({
 }: Props) {
   return (
     <div className={styles.container}>
-      <div data-background-image={image} className={`${styles.imageBox} lozad`}>
+      <div
+        className={`${styles.imageBox}`}
+        style={{
+          backgroundImage: `url(${image})`,
+        }}
+      >
         {image && <div className={styles.fader} />}
         <div className={styles.imageInnerBox}>
           <div className={image ? styles.title : styles.titleBlack}>

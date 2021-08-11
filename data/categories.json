@@ -10,10 +10,21 @@
       "keywords": ""
     }
   },
+  "34558178": {
+    "isOn": true,
+    "slug": "wall-decorations",
+    "order": 20,
+    "title": "Wall decorations",
+    "meta": {
+      "title": "Wall decorations",
+      "description": "Wall decorations description",
+      "keywords": ""
+    }
+  },
   "26982108": {
     "isOn": true,
     "slug": "stuffed-animals",
-    "order": 20,
+    "order": 30,
     "title": "Stuffed animals",
     "meta": {
       "title": "Stuffed animals",
@@ -24,22 +35,11 @@
   "27354379": {
     "isOn": true,
     "slug": "chtistmas-ornaments",
-    "order": 30,
+    "order": 40,
     "title": "Chtistmas ornaments",
     "meta": {
       "title": "Chtistmas ornaments",
-      "description": "Chtistmas ornaments Chtistmas ornaments",
-      "keywords": ""
-    }
-  },
-  "27719993": {
-    "isOn": true,
-    "slug": "keychains",
-    "order": 40,
-    "title": "Keychains",
-    "meta": {
-      "title": "Keychains",
-      "description": "Keychains description",
+      "description": "Chtistmas ornaments description",
       "keywords": ""
     }
   }

@@ -31,7 +31,7 @@ commonPages = commonPages
   )
   .concat(
     listings.map((item) => ({
-      url: `/item/${item}`,
+      url: `/items/${item}`,
     }))
   )
 

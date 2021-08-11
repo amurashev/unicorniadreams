@@ -10,8 +10,11 @@ export default function ListingComponent({ item }: Props) {
   return (
     <a href={item.url} className={styles.container}>
       <div
-        data-background-image={item.mainImage.large}
-        className={`${styles.imageBox} lozad`}
+        // data-background-image={item.mainImage.large}
+        className={`${styles.imageBox}`}
+        style={{
+          backgroundImage: `url(${item.mainImage.large})`,
+        }}
       >
         <div className={styles.imageInnerBox}>
           <div className={styles.fader} />
