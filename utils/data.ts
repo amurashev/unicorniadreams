@@ -21,7 +21,7 @@ export const mapListing = (raw: any): Listing => {
   let newListing: Listing = {
     id: raw.listing_id,
     title: raw.title,
-    description raw.description,
+    description: raw.description,
     isOn: false,
     isOnHome: false,
     etsyUrl: raw.url,

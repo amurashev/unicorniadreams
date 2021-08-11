@@ -21,7 +21,7 @@ export type ShippingInfo = {
 export type Listing = {
   id: number
   title: string
-  description string
+  description: string
   price: string
   isOn: boolean
   etsyUrl: string
@@ -41,7 +41,7 @@ export type Listing = {
   isOnHome?: boolean
   meta?: {
     h1: string
-    description string
+    description: string
     title: string
   }
 }
@@ -59,7 +59,7 @@ export type Category = {
   listings: Listing[]
   meta?: {
     h1: string
-    description string
+    description: string
     title: string
   }
 }
