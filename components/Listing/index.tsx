@@ -17,9 +17,13 @@ export default function ListingComponent({ item }: Props) {
         }}
       >
         <div className={styles.imageInnerBox}>
-          <div className={styles.fader} />
-          <div className={styles.title}>{item.title}</div>
+          {/* <div className={styles.fader} /> */}
         </div>
+      </div>
+
+      <div className={styles.textBox}>
+        <div className={styles.title}>{item.title}</div>
+        <div className={styles.price}>${item.price}</div>
       </div>
     </a>
   )

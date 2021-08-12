@@ -13,4 +13,5 @@
 
 .content {
   composes: content from '../../styles/common.css';
+  padding: 0 20px;
 }

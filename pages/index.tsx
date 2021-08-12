@@ -48,12 +48,14 @@ export default function Home({ shop, listings, categories }) {
         />
 
         <BaseBackgroundSection title="Popular Items">
-          <div className={styles.listings}>
-            {listings.map((item) => (
-              <div key={item.id} className={styles.listing}>
-                <Listing item={item} />
-              </div>
-            ))}
+          <div className={styles.content}>
+            <div className={styles.listings}>
+              {listings.map((item) => (
+                <div key={item.id} className={styles.listing}>
+                  <Listing item={item} />
+                </div>
+              ))}
+            </div>
           </div>
         </BaseBackgroundSection>
 

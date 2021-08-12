@@ -1,8 +1,13 @@
 .container {
-  color: initial;
   text-decoration: none !important;
-  height: 200px;
-  display: block;
+  height: 245px;
+  display: flex;
+  flex-direction: column;
+
+  background-color: #fff;
+  box-shadow: rgb(20 29 31 / 12%) 2px 2px 4px 0px;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .imageBox {
@@ -33,16 +38,34 @@
   padding: 16px;
 }
 
+.textBox {
+  padding: 10px;
+}
+
 .title {
   font-family: "Helvetica Neue", "Droid Sans", Arial, sans-serif;
-  color: white;
   font-weight: 400;
   font-size: 14px;
+  color: rgb(20, 29, 31);
   overflow: hidden !important;
   text-overflow: ellipsis !important;
   white-space: nowrap !important;
   min-width: 0 !important;
   width: 100%;
-  text-align: center;
+  color: #333333;
 }
 
+.category {
+  font-family: "Helvetica Neue", "Droid Sans", Arial, sans-serif;
+  font-size: 13px;
+  color: rgb(135 138 142);
+  margin-top: 2px;
+}
+
+.price {
+  font-family: "Helvetica Neue", "Droid Sans", Arial, sans-serif;
+  font-size: 15px;
+  color: #333333;
+  margin-top: 1px;
+  font-weight: 700;
+}
