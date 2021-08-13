@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import styles from './about.module.css'
+import styles from './about.module.scss'
 
 import META from '../data/meta.json'
 import Layout from '../components/Layout'

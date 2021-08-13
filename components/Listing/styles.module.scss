@@ -1,3 +1,5 @@
+@import "styles/variables";
+
 .container {
   text-decoration: none !important;
   height: 245px;
@@ -5,9 +7,14 @@
   flex-direction: column;
 
   background-color: #fff;
-  box-shadow: rgb(20 29 31 / 12%) 2px 2px 4px 0px;
+  color: $gray9;
+  box-shadow: $boxShadow1;
   border-radius: 8px;
   overflow: hidden;
+
+  &:hover {
+    box-shadow: $boxShadow2;
+  }
 }
 
 .imageBox {
@@ -43,29 +50,23 @@
 }
 
 .title {
-  font-family: "Helvetica Neue", "Droid Sans", Arial, sans-serif;
   font-weight: 400;
   font-size: 14px;
-  color: rgb(20, 29, 31);
   overflow: hidden !important;
   text-overflow: ellipsis !important;
   white-space: nowrap !important;
   min-width: 0 !important;
   width: 100%;
-  color: #333333;
 }
 
 .category {
-  font-family: "Helvetica Neue", "Droid Sans", Arial, sans-serif;
   font-size: 13px;
   color: rgb(135 138 142);
   margin-top: 2px;
 }
 
 .price {
-  font-family: "Helvetica Neue", "Droid Sans", Arial, sans-serif;
-  font-size: 15px;
-  color: #333333;
-  margin-top: 1px;
+  font-size: 16px;
+  margin-top: 2px;
   font-weight: 700;
 }

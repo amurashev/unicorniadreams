@@ -17,6 +17,7 @@
   "969814943": {
     "isOn": true,
     "isOnHome": true,
+    "order": 90,
     "slug": "ocean-surfing-surfer-mobile-boho-nursery",
     "meta": {
       "h1": "Ocean Surfing Mobile / Surfer VW bus mobile / Boho nursery",
@@ -68,6 +69,7 @@
   "1037428102": {
     "isOn": true,
     "isOnHome": true,
+    "order": 80,
     "slug": "sloth-nursery-decor-garland-animal-tropical-felt",
     "meta": {
       "h1": "Sloth Nursery Decor Garland / Animal Felt Decorations",
@@ -85,6 +87,7 @@
   "992823456": {
     "isOn": true,
     "isOnHome": true,
+    "order": 70,
     "slug": "unicorn-baby-mobile-white-horse-rib",
     "meta": {
       "h1": "Unicorn Baby Mobile / White Horse Crib",
@@ -102,6 +105,7 @@
   "1033701556": {
     "isOn": true,
     "isOnHome": true,
+    "order": 60,
     "slug": "personalised-nursery-decor-name-garland",
     "meta": {
       "h1": "Personalised Nursery Decor Name Garland",
@@ -168,6 +172,7 @@
   "1062264365": {
     "isOn": true,
     "isOnHome": true,
+    "order": 100,
     "slug": "tropical-ocean-fishes-crib-mobile-sea-fishes",
     "meta": {
       "h1": "Tropical Ocean Fishes Crib Mobile / Sea Fishes Baby Mobile",

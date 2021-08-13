@@ -36,6 +36,7 @@ export const mapListing = (raw: any): Listing => {
     mainImage: null,
     images: [],
     meta: null,
+    order: 0,
     // __raw: raw,
   }
 
@@ -53,6 +54,7 @@ export const mapListing = (raw: any): Listing => {
       title: fixedData.meta.h1,
       isOn: fixedData.isOn,
       isOnHome: fixedData.isOnHome,
+      order: fixedData.order || 0,
       slug: fixedData.slug,
       url: '/items/' + fixedData.slug,
       meta: fixedData.meta,

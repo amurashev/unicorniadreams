@@ -1,0 +1,26 @@
+@import "styles/variables";
+
+.listings {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+}
+
+.listing {
+  width: 33.33%;
+  padding: 10px
+}
+
+.content {
+  composes: content from '../../styles/common.scss';
+  padding: 32px 20px;
+}
+
+.lineBox {
+  composes: lineBox from '../../styles/common.scss';
+}
+
+.backLink {
+  composes: link from '../../styles/common.scss';
+}

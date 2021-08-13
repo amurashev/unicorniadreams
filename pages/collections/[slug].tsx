@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 
-import styles from './[slug].module.css'
+import styles from './[slug].module.scss'
 
 import Layout from '../../components/Layout'
 import Listing from '../../components/Listing'
@@ -11,10 +11,7 @@ import CATEGORIES from '../../data/categories.json'
 
 import { getShopSection, getShop } from '../../utils/etsy'
 import { mapCategory } from '../../utils/data'
-import {
-  getCategoryIdBySlug,
-  getIsCategoryShown,
-} from '../../utils/helpers'
+import { getCategoryIdBySlug, getIsCategoryShown } from '../../utils/helpers'
 import { Category, Listing as ListingType } from '../../utils/types'
 
 export async function getStaticPaths() {
@@ -79,19 +76,20 @@ export default function Item({
             </div>
           ))}
         </div>
+        <div className={styles.lineBox} />
         <div>
           <h2>Another collections</h2>
-          <div>
+          <ul>
             {similarCategories.map((item) => (
-              <div key={item.id}>
-                <Link href={item.url}>{item.title}</Link>
-              </div>
+              <li key={item.id}>
+                <a href={item.url}>{item.title}</a>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
-        <Link href="/collections">
-          <a>Back to collections</a>
-        </Link>
+        <a href="/collections" className={styles.backLink}>
+          Back to collection
+        </a>
       </div>
     </Layout>
   )

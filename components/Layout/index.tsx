@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 
-import styles from './styles.module.css'
+import styles from './styles.module.scss'
 
 const meta = {
   title: 'UnicorniaDreams: Magic home decor & baby toys',

@@ -1,0 +1,69 @@
+@import "styles/variables";
+
+.description {
+  white-space: pre-line;
+}
+
+.content {
+  composes: content from '../../styles/common.scss';
+  padding-bottom: 24px;
+}
+
+.imageBox {
+  margin-top: 24px;
+}
+
+.firstLine {
+  display: flex;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.titleBox {
+  flex-grow: 1;
+}
+
+.title {
+  
+}
+
+.price {
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 0px;
+}
+
+.button {
+  composes: button from '../../styles/common.scss';
+}
+
+.lineBox {
+  composes: lineBox from '../../styles/common.scss';
+}
+
+
+.highlightsBox {
+ 
+}
+
+
+.listings {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+  margin-top: 10px;
+}
+
+.listing {
+  width: 33.33%;
+  padding: 10px;
+}
+
+.backLinkBox {
+  margin-top: 10px;
+}
+
+.backLink {
+  composes: link from '../../styles/common.scss';
+}

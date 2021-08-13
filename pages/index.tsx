@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import styles from './index.module.css'
+import styles from './index.module.scss'
 
 import META from '../data/meta.json'
 
@@ -17,6 +17,7 @@ export async function getStaticProps() {
   const listings = shop.Listings.filter(getIsRawListingCorrect)
     .map(mapListing)
     .filter((item) => item.isOnHome)
+    .sort((a, b) => b.order - a.order)
   const categories = shop.Sections.map(mapCategory)
     .filter(getIsCategoryShown)
     .sort((a, b) => a.order - b.order)

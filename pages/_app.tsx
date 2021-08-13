@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import lozad from 'lozad'
 
-import '../styles/global.css'
+import '../styles/global.scss'
 
 export default function App({ Component, pageProps }) {
   useEffect(() => {

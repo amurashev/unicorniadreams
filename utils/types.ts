@@ -39,6 +39,7 @@ export type Listing = {
   url?: string
   slug?: string
   isOnHome?: boolean
+  order?: number
   meta?: {
     h1: string
     description: string

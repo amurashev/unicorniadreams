@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Layout from '../../components/Layout'
 import Listing from '../../components/Listing'
 
-import styles from './[slug].module.css'
+import styles from './[slug].module.scss'
 
 import LISTINGS from '../../data/listings.json'
 import { mapListing, mapCategory, mapShippingInfo } from '../../utils/data'
@@ -123,43 +123,66 @@ export default function Item({
       </Head>
 
       <div className={styles.content}>
-        <div>
+        <div className={styles.imageBox}>
           <img
             src={listing.mainImage.large}
             alt={`${h1} image`}
             className={`lozad`}
           />
         </div>
-        <h1>{h1}</h1>
-        <div className={styles.price}>${listing.price}</div>
-        <div>
-          {shippingInfo && shippingInfo.primaryCost === '0.00' && (
-            <div>This item ships free.</div>
-          )}
-        </div>
-        <div>
-          <a
-            href={listing.etsyUrl}
-            rel="noopener noreferrer"
-            className={styles.button}
-          >
-            Buy it now on Etsy.com
-          </a>
-        </div>
-        <div>
-          <h2>Highlights</h2>
-          <div>
-            <div>Handmade</div>
+        <div className={styles.firstLine}>
+          <div className={styles.titleBox}>
+            <h1 className={styles.title}>{h1}</h1>
+            <div className={styles.price}>${listing.price}</div>
           </div>
           <div>
-            <div>Materials: {listing.materials.join(', ')}</div>
+            <a
+              href={listing.etsyUrl}
+              rel="noopener noreferrer"
+              className={styles.button}
+            >
+              Buy it now on Etsy.com
+            </a>
           </div>
         </div>
-        <div>
+
+        <div className={styles.lineBox} />
+
+        <div className={styles.highlightsBox}>
           <h2>Shipping</h2>
-          Estimated arrival: <span>{arrival}</span>
+          <ul>
+            {shippingInfo && shippingInfo.primaryCost === '0.00' && (
+              <li>
+                Shipping cost: <span>Free</span>
+              </li>
+            )}
+
+            <li>
+              Estimated arrival: <span>{arrival}</span>
+            </li>
+          </ul>
         </div>
-        <div>
+
+        <div className={styles.lineBox} />
+
+        <div className={styles.highlightsBox}>
+          <h2>Highlights</h2>
+          <ul>
+            <li>
+              <div>Handmade</div>
+            </li>
+            <li>
+              <div>Materials: {listing.materials.join(', ')}</div>
+            </li>
+            <li>
+              <div>Tags: {listing.tags.join(', ')}</div>
+            </li>
+          </ul>
+        </div>
+
+        <div className={styles.lineBox} />
+
+        <div className={styles.highlightsBox}>
           <h2>Description</h2>
           <p
             className={styles.description}
@@ -169,25 +192,28 @@ export default function Item({
           ></p>
         </div>
 
-        <div>
-          <div>Tags: {listing.tags.join(', ')}</div>
-        </div>
+        {similarListings && similarListings.length > 0 && (
+          <>
+            <div className={styles.lineBox} />
 
-        <div>
-          <h2>Similar items</h2>
-          <div className={styles.listings}>
-            {similarListings.map((item) => (
-              <div key={item.id} className={styles.listing}>
-                <Listing item={item} />
+            <div className={styles.highlightsBox}>
+              <h2>Similar items</h2>
+              <div className={styles.listings}>
+                {similarListings.map((item) => (
+                  <div key={item.id} className={styles.listing}>
+                    <Listing item={item} />
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
+            </div>
+          </>
+        )}
+
         {category && (
-          <div>
-            <Link href={category.url}>
-              <a>Back to collection</a>
-            </Link>
+          <div className={styles.backLinkBox}>
+            <a href={category.url} className={styles.backLink}>
+              Back to category
+            </a>
           </div>
         )}
       </div>
