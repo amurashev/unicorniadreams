@@ -29,7 +29,7 @@ export default function Collections({ categories }) {
     <div>
       <Layout>
         <Head>
-          <title>{META.collections.title}</title>
+          <title>{META.collections.title}  - Unicornia Dreams</title>
           <meta name="description" content={META.collections.description} />
         </Head>
         <div>

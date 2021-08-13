@@ -63,7 +63,7 @@ export default function Item({
   return (
     <Layout>
       <Head>
-        <title>Buy handmade {category.meta.title} - Unicornia Dreams</title>
+        <title>{category.meta.title} - Unicornia Dreams</title>
         <meta name="description" content={category.meta.description} />
       </Head>
       <CategoryHeader item={category} />

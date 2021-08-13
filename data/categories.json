@@ -1,12 +1,12 @@
 {
   "32651447": {
     "isOn": true,
-    "slug": "mobiles",
+    "slug": "nursery-mobiles",
     "order": 10,
-    "title": "Mobiles",
+    "title": "Nursery Mobiles",
     "meta": {
-      "title": "Mobiles",
-      "description": "Mobiles description",
+      "title": "Buy nursery mobile handmade",
+      "description": "Our handmade mobiles are the best gift for newborn or for the baby shower!",
       "keywords": ""
     }
   },
@@ -16,8 +16,8 @@
     "order": 20,
     "title": "Wall decorations",
     "meta": {
-      "title": "Wall decorations",
-      "description": "Wall decorations description",
+      "title": "Buy home wall decorations",
+      "description": "Decorate your home with unusual amazing things!",
       "keywords": ""
     }
   },
@@ -27,19 +27,19 @@
     "order": 30,
     "title": "Stuffed animals",
     "meta": {
-      "title": "Stuffed animals",
+      "title": "Buy Stuffed animals handmade",
       "description": "Stuffed animals description",
       "keywords": ""
     }
   },
   "27354379": {
     "isOn": true,
-    "slug": "chtistmas-ornaments",
+    "slug": "christmas-ornaments",
     "order": 40,
-    "title": "Chtistmas ornaments",
+    "title": "Christmas ornaments",
     "meta": {
-      "title": "Chtistmas ornaments",
-      "description": "Chtistmas ornaments description",
+      "title": "Buy Christmas ornaments",
+      "description": "Christmas ornaments description",
       "keywords": ""
     }
   }

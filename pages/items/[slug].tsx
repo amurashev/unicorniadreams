@@ -117,7 +117,7 @@ export default function Item({
         {listing.meta && (
           <>
             <meta name="description" content={listing.meta.description} />
-            <meta name="keywords" content={listing.tags.join()} />
+            <meta name="keywords" content={listing.tags.join(', ')} />
           </>
         )}
       </Head>
