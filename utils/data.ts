@@ -93,10 +93,10 @@ export const mapCategory = (raw: any): Category => {
       ...newCategory,
       isOn: fixedData.isOn,
       order: fixedData.order,
+      title: fixedData.title,
       slug: fixedData.slug,
       url: '/collections/' + fixedData.slug,
       meta: fixedData.meta,
-      title: fixedData.meta.title,
       mainImage: {
         // large: require(`../images/categories/${id}.jpg`).default,
         large: `/images/categories/${id}.jpg`,
