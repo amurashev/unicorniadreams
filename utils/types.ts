@@ -54,7 +54,7 @@ export type Category = {
   url?: string
   slug?: string
   order?: number
-  mainImage: {
+  mainImage?: {
     large: string
   }
   listings: Listing[]
