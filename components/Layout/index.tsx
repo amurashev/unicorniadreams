@@ -32,6 +32,7 @@ export default function Layout({ children }) {
           href="/favicon-16x16.png"
         />
         <meta name="google-site-verification" content="rJnAZHvqGCMOxwOWk5kL4SBbj3baUQu96DZ6-KujDKM" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-BH4EFRY18K" />
       </Head>
       <header className={styles.header}>
         <a href="/" className={styles.headerLink}>
