@@ -102,7 +102,7 @@ export default function Item({
   const today = new Date()
   const from = new Date()
   const to = new Date()
-  const options = { month: 'short', day: 'numeric' }
+  const options = { month: 'short' as 'short', day: 'numeric' as 'numeric' }
   const dateFrom = new Intl.DateTimeFormat('en-US', options).format(
     from.setDate(today.getDate() + 10)
   )
@@ -110,7 +110,7 @@ export default function Item({
     from.setDate(to.getDate() + 20)
   )
   const arrival = `${dateFrom} - ${dateTo}`
-  
+
   return (
     <Layout>
       <Head>
