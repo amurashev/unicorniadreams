@@ -31,6 +31,7 @@ export default function Layout({ children }) {
           sizes="16x16"
           href="/favicon-16x16.png"
         />
+        <meta name="google-site-verification" content="rJnAZHvqGCMOxwOWk5kL4SBbj3baUQu96DZ6-KujDKM" />
       </Head>
       <header className={styles.header}>
         <a href="/" className={styles.headerLink}>

@@ -74,9 +74,6 @@ export const mapCategory = (raw: any): Category => {
     isOn: false,
     slug: null,
     url: null,
-    mainImage: {
-      large: `/images/categories/${id}.jpg`,
-    },
     meta: null,
 
     // __raw: raw,
@@ -100,6 +97,10 @@ export const mapCategory = (raw: any): Category => {
       url: '/collections/' + fixedData.slug,
       meta: fixedData.meta,
       title: fixedData.meta.title,
+      mainImage: {
+        // large: require(`../images/categories/${id}.jpg`).default,
+        large: `/images/categories/${id}.jpg`,
+      },
     }
   }
   return newCategory

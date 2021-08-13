@@ -11,7 +11,7 @@ export default function CategoryComponent({ item }: Props) {
     <BaseBackgroundSection
       title={item.title}
       description={item.meta.description}
-      image={item.mainImage.large}
+      image={item.mainImage ? item.mainImage.large : ''}
       url={item.url}
       buttonLabel="Explore the collection"
     />
