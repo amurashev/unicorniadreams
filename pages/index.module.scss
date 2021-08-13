@@ -26,7 +26,9 @@
 
 .category {
   width: 25%;
-  padding: 10px
+  padding: 10px;
+
+
 }
 
 .content {
@@ -38,10 +40,22 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 32px;
+  margin-top: 12px;
+
+  @include gt-md {
+    margin-top: 32px;
+  }
 }
 
 .listing {
-  width: 33.33%;
-  padding: 10px
+  width: 100%;
+  padding: 10px;
+
+  @include gt-xs {
+    width: 50%;
+  }
+
+  @include gt-sm {
+    width: 33.33%;
+  }
 }

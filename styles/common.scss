@@ -27,7 +27,6 @@
 }
 
 .button {
-  /* font-family: "GT-America-Condensed-Bold",sans-serif; */
   font-size: 16px;
   letter-spacing: 1px;
   line-height: 20px;
@@ -39,6 +38,7 @@
   color: #fff;
   cursor: pointer;
   border-radius: 5px;
+  text-align: center;
 
   &:hover {
     text-decoration: none;

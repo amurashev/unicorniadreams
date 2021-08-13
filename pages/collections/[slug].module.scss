@@ -8,13 +8,25 @@
 }
 
 .listing {
-  width: 33.33%;
-  padding: 10px
+  width: 100%;
+  padding: 10px;
+
+  @include gt-xs {
+    width: 50%;
+  }
+
+  @include gt-sm {
+    width: 33.33%;
+  }
 }
 
 .content {
   composes: content from '../../styles/common.scss';
-  padding: 32px 20px;
+  padding: 16px;
+
+  @include gt-md {
+    padding: 32px 20px;
+  }
 }
 
 .lineBox {

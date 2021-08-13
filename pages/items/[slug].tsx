@@ -124,7 +124,19 @@ export default function Item({
       </Head>
 
       <div className={styles.content}>
-        <div className={styles.imageList}>
+        <div className={styles.imageListMobile}>
+          <div className={styles.imageItemFull}>
+            <div className={styles.imageBox}>
+              <div
+                className={styles.image}
+                style={{
+                  backgroundImage: `url(${listing.images[0].large})`,
+                }}
+              />
+            </div>
+          </div>
+        </div>
+        <div className={styles.imageListDesktop}>
           {listing.images[0] && (
             <div className={styles.imageItemFirst}>
               <div className={styles.imageBox}>
@@ -197,7 +209,7 @@ export default function Item({
             <h1 className={styles.title}>{h1}</h1>
             <div className={styles.price}>${listing.price}</div>
           </div>
-          <div>
+          <div className={styles.buttonBox}>
             <a
               href={listing.etsyUrl}
               rel="noopener noreferrer"
@@ -207,6 +219,16 @@ export default function Item({
             </a>
           </div>
         </div>
+
+        <div className={styles.buttonBoxMobile}>
+            <a
+              href={listing.etsyUrl}
+              rel="noopener noreferrer"
+              className={styles.button}
+            >
+              Buy it now on Etsy.com
+            </a>
+          </div>
 
         <div className={styles.lineBox} />
 

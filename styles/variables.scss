@@ -8,8 +8,35 @@ $descriptionFont: "Guardian-EgypTT", Charter, "Charter Bitstream", Cambria, "Not
 
 
 // $descriptionFont: 'Cormorant Garamond', cursive;
+$mediaSM: 576px;
+$mediaMD: 768px;
+$mediaLG: 992px;
+$mediaXL: 1200px;
 
+// media gt queries
+@mixin gt-xs {
+  @media screen and (min-width: #{$mediaSM}) {
+    @content;
+  }
+}
 
+@mixin gt-sm {
+  @media screen and (min-width: #{$mediaMD}) {
+    @content;
+  }
+}
+
+@mixin gt-md {
+  @media screen and (min-width: #{$mediaLG}) {
+    @content;
+  }
+}
+
+@mixin gt-lg {
+  @media screen and (min-width: #{smediaXL}) {
+    @content;
+  }
+}
 // gray
 $gray0: #f9f9f9;
 $gray1: #ecedf0;
