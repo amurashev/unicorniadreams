@@ -9,10 +9,6 @@
   padding-bottom: 24px;
 }
 
-.imageBox {
-  margin-top: 24px;
-}
-
 .firstLine {
   display: flex;
   align-items: center;
@@ -66,4 +62,84 @@
 
 .backLink {
   composes: link from '../../styles/common.scss';
+}
+
+.imageList {
+  display: flex;
+  margin: 0 -4px;
+  margin-top: 24px;
+  padding-top: 0;
+  position: relative;
+
+  > div {
+    &:first-child {
+      > div {
+        border-radius: 8px 0 0 8px;
+      }
+    }
+
+    &:nth-child(4) {
+      > div {
+        border-radius: 0 8px 8px 0;
+      }
+    }
+  }
+}
+
+.imageItem {
+  width: 100%;
+  height: 165px;
+  flex-shrink: 0;
+  font-size: 15px;
+  z-index: 1;
+  padding: 2px;
+}
+
+.imageItemFirst {
+  composes: imageItem;
+  width: 34%;
+  height: 330px;
+}
+
+.imageItemSecond {
+  composes: imageItem;
+  width: 25%;
+  height: 330px;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 16%;
+}
+
+.imageBox {
+  display: block;
+  position: relative;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: 50% center;
+  overflow: hidden;
+
+  &:hover {
+    filter: brightness(90%);
+  }
+}
+
+.image {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-size: cover;
+  background-position-x: 50%;
+  background-position-y: 50%;
+  width: 100%;
+  height: 100%;
+  // background-image: url(${props => props.imageSrc});
+  cursor: pointer;
 }

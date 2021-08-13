@@ -39,19 +39,12 @@ async function sleep(ms) {
 }
 
 export async function getStaticProps({ params }) {
-  console.info('\n---------------------------------')
-
   const id = getListingIdBySlug(params.slug)
   const data = await getListing(id)
   const listing = mapListing(data)
-
-  console.info('\nListing is fetched: ', params.slug)
-  console.info('\n---------------------------------')
   await sleep(2000)
 
   const shippingInfoList = await getListingShippingInfo(id)
-  console.info('\nListing shipping info is fetched: ', params.slug)
-  console.info('\n---------------------------------')
   await sleep(2000)
 
   const shippingInfoRaw = shippingInfoList.find(
@@ -66,8 +59,6 @@ export async function getStaticProps({ params }) {
 
   if (listing.categoryId) {
     const section = await getShopSection(listing.categoryId)
-    console.info('\nSection is fetched: ', listing.categoryId)
-    console.info('\n---------------------------------')
     await sleep(2000)
 
     category = mapCategory(section)
@@ -108,12 +99,22 @@ export default function Item({
   similarListings: ListingType[]
 }) {
   const h1 = listing.meta ? listing.meta.h1 : listing.title
-  const arrival = 'Aug 27-Sep 14' // TODO
-
+  const today = new Date()
+  const from = new Date()
+  const to = new Date()
+  const options = { month: 'short', day: 'numeric' }
+  const dateFrom = new Intl.DateTimeFormat('en-US', options).format(
+    from.setDate(today.getDate() + 10)
+  )
+  const dateTo = new Intl.DateTimeFormat('en-US', options).format(
+    from.setDate(to.getDate() + 20)
+  )
+  const arrival = `${dateFrom} - ${dateTo}`
+  
   return (
     <Layout>
       <Head>
-        <title>Buy handmade {listing.title} - Unicornia Dreams</title>
+        <title>Buy {listing.title} - Unicornia Dreams</title>
         {listing.meta && (
           <>
             <meta name="description" content={listing.meta.description} />
@@ -123,13 +124,74 @@ export default function Item({
       </Head>
 
       <div className={styles.content}>
-        <div className={styles.imageBox}>
-          <img
-            src={listing.mainImage.large}
-            alt={`${h1} image`}
-            className={`lozad`}
-          />
+        <div className={styles.imageList}>
+          {listing.images[0] && (
+            <div className={styles.imageItemFirst}>
+              <div className={styles.imageBox}>
+                <div
+                  className={styles.image}
+                  style={{
+                    backgroundImage: `url(${listing.images[0].large})`,
+                  }}
+                />
+              </div>
+            </div>
+          )}
+
+          {listing.images[1] && (
+            <div className={styles.imageItemSecond}>
+              <div className={styles.imageBox}>
+                <div
+                  className={styles.image}
+                  style={{
+                    backgroundImage: `url(${listing.images[1].large})`,
+                  }}
+                />
+              </div>
+            </div>
+          )}
+
+          <div className={styles.list}>
+            {listing.images[2] && (
+              <div className={styles.imageItem}>
+                <div className={styles.imageBox}>
+                  <div
+                    className={styles.image}
+                    style={{
+                      backgroundImage: `url(${listing.images[2].large})`,
+                    }}
+                  />
+                </div>
+              </div>
+            )}
+
+            {listing.images[3] && (
+              <div className={styles.imageItem}>
+                <div className={styles.imageBox}>
+                  <div
+                    className={styles.image}
+                    style={{
+                      backgroundImage: `url(${listing.images[3].large})`,
+                    }}
+                  />
+                </div>
+              </div>
+            )}
+          </div>
+          {listing.images[4] && (
+            <div className={styles.imageItemSecond}>
+              <div className={styles.imageBox}>
+                <div
+                  className={styles.image}
+                  style={{
+                    backgroundImage: `url(${listing.images[4].large})`,
+                  }}
+                />
+              </div>
+            </div>
+          )}
         </div>
+
         <div className={styles.firstLine}>
           <div className={styles.titleBox}>
             <h1 className={styles.title}>{h1}</h1>
