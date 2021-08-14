@@ -105,12 +105,16 @@ export default function Item({
   const today = new Date()
   const from = new Date()
   const to = new Date()
+
+  const daysCountFrom = 10
+  const daysCountTo = 20
+
   const options = { month: 'short' as 'short', day: 'numeric' as 'numeric' }
   const dateFrom = new Intl.DateTimeFormat('en-US', options).format(
-    from.setDate(today.getDate() + 10)
+    from.setDate(today.getDate() + daysCountFrom)
   )
   const dateTo = new Intl.DateTimeFormat('en-US', options).format(
-    from.setDate(to.getDate() + 20)
+    from.setDate(to.getDate() + daysCountTo)
   )
   const arrival = `${dateFrom} - ${dateTo}`
 
@@ -123,24 +127,13 @@ export default function Item({
     '@context': 'https://schema.org/',
     '@type': 'Product',
     name: listing.title,
+    image: listing.mainImage.large,
     images: listing.images.map((item) => item.large),
     description: listing.description,
     brand: {
       '@type': 'Brand',
       name: 'Unicornia Dreams',
     },
-    // review: {
-    //   '@type': 'Review',
-    //   reviewRating: {
-    //     '@type': 'Rating',
-    //     ratingValue: '4',
-    //     bestRating: '5',
-    //   },
-    //   author: {
-    //     '@type': 'Person',
-    //     name: 'Fred Benson',
-    //   },
-    // },
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '5',
@@ -151,6 +144,7 @@ export default function Item({
       '@type': 'Offer',
       itemCondition: 'https://schema.org/NewCondition',
       availability: 'https://schema.org/InStock',
+      url: listing.etsyUrl,
       offerCount: '1',
       price: listing.price,
       priceCurrency: 'USD',
@@ -160,13 +154,13 @@ export default function Item({
           '@type': 'ShippingDeliveryTime',
           handlingTime: {
             '@type': 'QuantitativeValue',
-            minValue: '0',
-            maxValue: '1',
+            minValue: '1',
+            maxValue: '3',
           },
           transitTime: {
             '@type': 'QuantitativeValue',
-            minValue: '10',
-            maxValue: '25',
+            minValue: daysCountFrom,
+            maxValue: daysCountTo,
           },
         },
       },
@@ -176,37 +170,36 @@ export default function Item({
   if (shippingInfo && shippingInfo.primaryCost) {
     schema.offers.shippingDetails.shippingRate = {
       '@type': 'MonetaryAmount',
-      value: shippingInfo.primaryCost,
+      value: shippingInfo.primaryCost === '0.00' ? 0 : shippingInfo.primaryCost,
       currency: 'USD',
     }
   }
-
-  // console.warn('render', listing, shippingInfo, schema)
 
   return (
     <Layout>
       <Head>
         <title>{title}</title>
+        <meta name="keywords" content={listing.tags.join(', ')} />
+        <meta property="og:title" content={title} />
+
         {listing.meta && (
           <>
             <meta name="description" content={listing.meta.description} />
-            <meta name="keywords" content={listing.tags.join(', ')} />
-
-            <meta property="og:title" content={title} />
             <meta
               property="og:description"
               content={listing.meta.description}
             />
-            {listing.mainImage && (
-              <meta property="og:image" content={listing.mainImage.large} />
-            )}
-
-            <meta property="og:type" content="website" />
-            <meta property="og:url" content={context.url} />
-            <meta property="og:locale" content="en_US" />
-            <meta property="og:site_name" content="Unicornia Dreams" />
           </>
         )}
+
+        {listing.mainImage && (
+          <meta property="og:image" content={listing.mainImage.large} />
+        )}
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={context.url} />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:site_name" content="Unicornia Dreams" />
       </Head>
 
       <div className={styles.content}>
