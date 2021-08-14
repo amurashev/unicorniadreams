@@ -60,11 +60,22 @@ export default function Item({
   listings: ListingType[]
   similarCategories: Category[]
 }) {
+  const title = `${category.meta.title} - Unicornia Dreams`
   return (
     <Layout>
       <Head>
-        <title>{category.meta.title} - Unicornia Dreams</title>
+        <title>{title}</title>
         <meta name="description" content={category.meta.description} />
+
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={category.meta.description} />
+        {category.mainImage.large && (
+          <meta property="og:image" content={category.mainImage.large} />
+        )}
+
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:site_name" content="Unicornia Dreams" />
       </Head>
       <CategoryHeader item={category} />
 

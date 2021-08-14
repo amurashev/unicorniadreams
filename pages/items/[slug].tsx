@@ -98,7 +98,6 @@ export default function Item({
   category?: Category
   similarListings: ListingType[]
 }) {
-  const h1 = listing.meta ? listing.meta.h1 : listing.title
   const today = new Date()
   const from = new Date()
   const to = new Date()
@@ -111,19 +110,39 @@ export default function Item({
   )
   const arrival = `${dateFrom} - ${dateTo}`
 
+  const title = `Buy ${listing.title} - Unicornia Dreams`
+  const h1 = listing.meta ? listing.meta.h1 : listing.title
+
   return (
     <Layout>
       <Head>
-        <title>Buy {listing.title} - Unicornia Dreams</title>
+        <title>{title}</title>
         {listing.meta && (
           <>
             <meta name="description" content={listing.meta.description} />
             <meta name="keywords" content={listing.tags.join(', ')} />
+
+            <meta property="og:title" content={title} />
+            <meta
+              property="og:description"
+              content={listing.meta.description}
+            />
+            {listing.images[0] && (
+              <meta property="og:image" content={listing.images[0].large} />
+            )}
+
+            <meta property="og:type" content="website" />
+            <meta property="og:locale" content="en_US" />
+            <meta property="og:site_name" content="Unicornia Dreams" />
           </>
         )}
       </Head>
 
-      <div className={styles.content}>
+      <div
+        className={styles.content}
+        itemScope
+        itemType="http://schema.org/Product"
+      >
         <div className={styles.imageListMobile}>
           <div className={styles.imageItemFull}>
             <div className={styles.imageBox}>
@@ -132,6 +151,7 @@ export default function Item({
                 style={{
                   backgroundImage: `url(${listing.images[0].large})`,
                 }}
+                itemProp="image"
               />
             </div>
           </div>
@@ -206,8 +226,22 @@ export default function Item({
 
         <div className={styles.firstLine}>
           <div className={styles.titleBox}>
-            <h1 className={styles.title}>{h1}</h1>
-            <div className={styles.price}>${listing.price}</div>
+            <h1 className={styles.title} itemProp="name">
+              {h1}
+            </h1>
+            <div
+              className={styles.price}
+              itemProp="offers"
+              itemScope
+              itemType="http://schema.org/Offer"
+            >
+              <span itemProp="priceCurrency">$</span>
+              <span itemProp="price">{listing.price}</span>
+              <link
+                itemProp="availability"
+                href="http://schema.org/InStock"
+              ></link>
+            </div>
           </div>
           <div className={styles.buttonBox}>
             <a
@@ -221,14 +255,14 @@ export default function Item({
         </div>
 
         <div className={styles.buttonBoxMobile}>
-            <a
-              href={listing.etsyUrl}
-              rel="noopener noreferrer"
-              className={styles.button}
-            >
-              Buy it now on Etsy.com
-            </a>
-          </div>
+          <a
+            href={listing.etsyUrl}
+            rel="noopener noreferrer"
+            className={styles.button}
+          >
+            Buy it now on Etsy.com
+          </a>
+        </div>
 
         <div className={styles.lineBox} />
 
@@ -271,8 +305,9 @@ export default function Item({
           <p
             className={styles.description}
             dangerouslySetInnerHTML={{
-              __html: `<!--googleoff: all--> <!--noindex-->${listing.description} <!--/noindex--> <!--googleon: all-->'`,
+              __html: `${listing.description}`,
             }}
+            itemProp="description"
           ></p>
         </div>
 

@@ -46,6 +46,8 @@ export default function Layout({ children }) {
                     https://i.etsystatic.com/isla/7739c0/47421985/isla_75x75.47421985_ap4d2bp2.jpg?version=0 75w"
               sizes="(min-width: 900px) 18vw, 30vw"
               alt="UnicorniaDreams logo"
+              width={70}
+              height={70}
             />
           </div>
 

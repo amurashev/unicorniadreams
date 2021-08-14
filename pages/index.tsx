@@ -38,6 +38,17 @@ export default function Home({ shop, listings, categories }) {
         <Head>
           <title>{META.home.title}</title>
           <meta name="description" content={META.home.description} />
+
+          <meta property="og:title" content={META.home.title} />
+          <meta property="og:description" content={META.home.description} />
+          <meta
+            property="og:image"
+            content={'"/images/categories/32651447.jpg"'}
+          />
+
+          <meta property="og:type" content="website" />
+          <meta property="og:locale" content="en_US" />
+          <meta property="og:site_name" content="Unicornia Dreams" />
         </Head>
 
         <BaseBackgroundSection
