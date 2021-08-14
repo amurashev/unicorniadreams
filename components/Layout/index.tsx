@@ -31,7 +31,10 @@ export default function Layout({ children }) {
           sizes="16x16"
           href="/favicon-16x16.png"
         />
-        <meta name="google-site-verification" content="rJnAZHvqGCMOxwOWk5kL4SBbj3baUQu96DZ6-KujDKM" />
+        <meta
+          name="google-site-verification"
+          content="rJnAZHvqGCMOxwOWk5kL4SBbj3baUQu96DZ6-KujDKM"
+        />
         {/* <script async src="https://www.googletagmanager.com/gtag/js?id=G-BH4EFRY18K" /> */}
       </Head>
       <header className={styles.header}>
@@ -40,6 +43,7 @@ export default function Layout({ children }) {
             <img
               className=""
               src="/images/unicornia_logo_70.jpg"
+              srcSet="/images/unicornia_logo_140.jpg 2x, /images/unicornia_logo_210.jpg 3x"
               alt="UnicorniaDreams logo"
               width={70}
               height={70}
