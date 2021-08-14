@@ -43,7 +43,7 @@ export default function Home({ shop, listings, categories }) {
           <meta property="og:description" content={META.home.description} />
           <meta
             property="og:image"
-            content={'"/images/categories/32651447.jpg"'}
+            content={'/images/categories/32651447.jpg'}
           />
 
           <meta property="og:type" content="website" />
