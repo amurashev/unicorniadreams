@@ -32,19 +32,14 @@ export default function Layout({ children }) {
           href="/favicon-16x16.png"
         />
         <meta name="google-site-verification" content="rJnAZHvqGCMOxwOWk5kL4SBbj3baUQu96DZ6-KujDKM" />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-BH4EFRY18K" />
+        {/* <script async src="https://www.googletagmanager.com/gtag/js?id=G-BH4EFRY18K" /> */}
       </Head>
       <header className={styles.header}>
         <a href="/" className={styles.headerLink}>
           <div className={styles.headerImage}>
             <img
               className=""
-              src="https://i.etsystatic.com/isla/7739c0/47421985/isla_180x180.47421985_ap4d2bp2.jpg?version=0"
-              srcSet="https://i.etsystatic.com/isla/7739c0/47421985/isla_500x500.47421985_ap4d2bp2.jpg?version=0 500w,
-                    https://i.etsystatic.com/isla/7739c0/47421985/isla_280x280.47421985_ap4d2bp2.jpg?version=0 280w,
-                    https://i.etsystatic.com/isla/7739c0/47421985/isla_180x180.47421985_ap4d2bp2.jpg?version=0 180w,
-                    https://i.etsystatic.com/isla/7739c0/47421985/isla_75x75.47421985_ap4d2bp2.jpg?version=0 75w"
-              sizes="(min-width: 900px) 18vw, 30vw"
+              src="/images/unicornia_logo_70.jpg"
               alt="UnicorniaDreams logo"
               width={70}
               height={70}
