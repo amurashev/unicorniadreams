@@ -119,6 +119,70 @@ export default function Item({
 
   // TODO: Site rating count
 
+  const schema: any = {
+    '@context': 'https://schema.org/',
+    '@type': 'Product',
+    name: listing.title,
+    images: listing.images.map((item) => item.large),
+    description: listing.description,
+    brand: {
+      '@type': 'Brand',
+      name: 'Unicornia Dreams',
+    },
+    // review: {
+    //   '@type': 'Review',
+    //   reviewRating: {
+    //     '@type': 'Rating',
+    //     ratingValue: '4',
+    //     bestRating: '5',
+    //   },
+    //   author: {
+    //     '@type': 'Person',
+    //     name: 'Fred Benson',
+    //   },
+    // },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '5',
+      bestRating: '5',
+      reviewCount: '24',
+    },
+    offers: {
+      '@type': 'Offer',
+      itemCondition: 'https://schema.org/NewCondition',
+      availability: 'https://schema.org/InStock',
+      offerCount: '1',
+      price: listing.price,
+      priceCurrency: 'USD',
+      shippingDetails: {
+        '@type': 'OfferShippingDetails',
+        deliveryTime: {
+          '@type': 'ShippingDeliveryTime',
+          handlingTime: {
+            '@type': 'QuantitativeValue',
+            minValue: '0',
+            maxValue: '1',
+          },
+          transitTime: {
+            '@type': 'QuantitativeValue',
+            minValue: '10',
+            maxValue: '25',
+          },
+        },
+      },
+    },
+  }
+
+  if (shippingInfo && shippingInfo.primaryCost) {
+    schema.offers.shippingDetails.shippingRate = {
+      '@type': 'MonetaryAmount',
+      value: shippingInfo.primaryCost,
+      currency: 'USD',
+    }
+  }
+
+  // console.warn('render', listing, shippingInfo, schema)
+
   return (
     <Layout>
       <Head>
@@ -133,8 +197,8 @@ export default function Item({
               property="og:description"
               content={listing.meta.description}
             />
-            {listing.images[0] && (
-              <meta property="og:image" content={listing.images[0].large} />
+            {listing.mainImage && (
+              <meta property="og:image" content={listing.mainImage.large} />
             )}
 
             <meta property="og:type" content="website" />
@@ -145,11 +209,7 @@ export default function Item({
         )}
       </Head>
 
-      <div
-        className={styles.content}
-        itemScope
-        itemType="http://schema.org/Product"
-      >
+      <div className={styles.content}>
         <div className={styles.imageListMobile}>
           <div className={styles.imageItemFull}>
             <div className={styles.imageBox}>
@@ -233,34 +293,10 @@ export default function Item({
 
         <div className={styles.firstLine}>
           <div className={styles.titleBox}>
-            <h1 className={styles.title} itemProp="name">
-              {h1}
-            </h1>
-            <div
-              className={styles.price}
-              itemProp="offers"
-              itemScope
-              itemType="http://schema.org/Offer"
-            >
+            <h1 className={styles.title}>{h1}</h1>
+            <div className={styles.price}>
               <span>$</span>
-              <span itemProp="priceCurrency" className={styles.ogField}>
-                USD
-              </span>
-              <span itemProp="price">{listing.price}</span>
-              <link
-                itemProp="availability"
-                href="http://schema.org/InStock"
-              ></link>
-            </div>
-            <div
-              itemProp="aggregateRating"
-              itemScope
-              itemType="https://schema.org/AggregateRating"
-              className={styles.ogField}
-            >
-              <span itemProp="ratingValue">5</span>/
-              <span itemProp="bestRating">5</span>
-              <span itemProp="ratingCount">24</span>
+              <span>{listing.price}</span>
             </div>
           </div>
           <div className={styles.buttonBox}>
@@ -327,7 +363,6 @@ export default function Item({
             dangerouslySetInnerHTML={{
               __html: `${listing.description}`,
             }}
-            itemProp="description"
           ></p>
         </div>
 
@@ -355,6 +390,12 @@ export default function Item({
             </a>
           </div>
         )}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(schema),
+          }}
+        />
       </div>
     </Layout>
   )
