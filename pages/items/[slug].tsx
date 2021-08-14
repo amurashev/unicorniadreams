@@ -102,7 +102,6 @@ export default function Item({
   similarListings: ListingType[]
   context: any
 }) {
-
   const today = new Date()
   const from = new Date()
   const to = new Date()
@@ -117,6 +116,8 @@ export default function Item({
 
   const title = `Buy ${listing.title} - Unicornia Dreams`
   const h1 = listing.meta ? listing.meta.h1 : listing.title
+
+  // TODO: Site rating count
 
   return (
     <Layout>
@@ -242,7 +243,7 @@ export default function Item({
               itemType="http://schema.org/Offer"
             >
               <span>$</span>
-              <span itemProp="priceCurrency" className={styles.priceCurrency}>
+              <span itemProp="priceCurrency" className={styles.ogField}>
                 USD
               </span>
               <span itemProp="price">{listing.price}</span>
@@ -250,6 +251,16 @@ export default function Item({
                 itemProp="availability"
                 href="http://schema.org/InStock"
               ></link>
+            </div>
+            <div
+              itemProp="aggregateRating"
+              itemScope
+              itemType="https://schema.org/AggregateRating"
+              className={styles.ogField}
+            >
+              <span itemProp="ratingValue">5</span>/
+              <span itemProp="bestRating">5</span>
+              <span itemProp="ratingCount">24</span>
             </div>
           </div>
           <div className={styles.buttonBox}>
