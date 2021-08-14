@@ -37,6 +37,18 @@ export default function Layout({ children }) {
         />
         {/* <script async src="https://www.googletagmanager.com/gtag/js?id=G-BH4EFRY18K" /> */}
       </Head>
+      <noscript>
+        <div>
+          <img
+            src="https://mc.yandex.ru/watch/84009604"
+            style={{
+              position: 'absolute',
+              left: '-9999px',
+            }}
+            alt=""
+          />
+        </div>
+      </noscript>
       <header className={styles.header}>
         <a href="/" className={styles.headerLink}>
           <div className={styles.headerImage}>
