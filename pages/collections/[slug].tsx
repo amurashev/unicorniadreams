@@ -55,10 +55,12 @@ export default function Item({
   category,
   listings,
   similarCategories,
+  context,
 }: {
   category: Category
   listings: ListingType[]
   similarCategories: Category[]
+  context: any
 }) {
   const title = `${category.meta.title} - Unicornia Dreams`
   return (
@@ -74,6 +76,7 @@ export default function Item({
         )}
 
         <meta property="og:type" content="website" />
+        <meta property="og:url" content={context.url} />
         <meta property="og:locale" content="en_US" />
         <meta property="og:site_name" content="Unicornia Dreams" />
       </Head>

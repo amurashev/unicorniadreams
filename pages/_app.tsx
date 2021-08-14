@@ -1,9 +1,13 @@
 import { useEffect } from 'react'
+import { useRouter } from 'next/router';
 import lozad from 'lozad'
 
 import '../styles/global.scss'
 
+const host = 'https://unicorniadreams.store'
+
 export default function App({ Component, pageProps }) {
+  const { asPath } = useRouter()
   useEffect(() => {
     const observer = lozad() // lazy loads elements with default selector as '.lozad'
     observer.observe()
@@ -17,5 +21,14 @@ export default function App({ Component, pageProps }) {
     gtag('config', 'G-BH4EFRY18K')
   }, [])
 
-  return <Component {...pageProps} />
+  const props = {
+    ...pageProps,
+    context: {
+      host,
+      path: asPath,
+      url: `${host}${asPath}`
+    }
+  }
+
+  return <Component {...props} />
 }

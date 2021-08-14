@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+
 import Layout from '../../components/Layout'
 import Listing from '../../components/Listing'
 
@@ -38,7 +39,8 @@ async function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps(context) {
+  const { params } = context
   const id = getListingIdBySlug(params.slug)
   const data = await getListing(id)
   const listing = mapListing(data)
@@ -92,12 +94,15 @@ export default function Item({
   shippingInfo,
   category,
   similarListings,
+  context,
 }: {
   listing: ListingType
   shippingInfo: ShippingInfo
   category?: Category
   similarListings: ListingType[]
+  context: any
 }) {
+
   const today = new Date()
   const from = new Date()
   const to = new Date()
@@ -132,6 +137,7 @@ export default function Item({
             )}
 
             <meta property="og:type" content="website" />
+            <meta property="og:url" content={context.url} />
             <meta property="og:locale" content="en_US" />
             <meta property="og:site_name" content="Unicornia Dreams" />
           </>
@@ -235,7 +241,10 @@ export default function Item({
               itemScope
               itemType="http://schema.org/Offer"
             >
-              <span itemProp="priceCurrency">$</span>
+              <span>$</span>
+              <span itemProp="priceCurrency" className={styles.priceCurrency}>
+                USD
+              </span>
               <span itemProp="price">{listing.price}</span>
               <link
                 itemProp="availability"

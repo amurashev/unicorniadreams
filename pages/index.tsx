@@ -1,5 +1,4 @@
 import Head from 'next/head'
-
 import styles from './index.module.scss'
 
 import META from '../data/meta.json'
@@ -31,7 +30,7 @@ export async function getStaticProps() {
   }
 }
 
-export default function Home({ shop, listings, categories }) {
+export default function Home({ shop, listings, categories, context }) {
   return (
     <div>
       <Layout>
@@ -47,6 +46,7 @@ export default function Home({ shop, listings, categories }) {
           />
 
           <meta property="og:type" content="website" />
+          <meta property="og:url" content={context.url} />
           <meta property="og:locale" content="en_US" />
           <meta property="og:site_name" content="Unicornia Dreams" />
         </Head>
