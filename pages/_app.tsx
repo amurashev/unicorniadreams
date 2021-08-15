@@ -6,7 +6,7 @@ import mixpanel from 'mixpanel-browser'
 
 import '../styles/global.scss'
 
-const host = 'https://unicorniadreams.store'
+const host = 'http://unicorniadreams.store'
 
 export default function App({ Component, pageProps }) {
   const { asPath } = useRouter()
