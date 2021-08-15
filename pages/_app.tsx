@@ -2,6 +2,7 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import lozad from 'lozad'
+import ReactGA from 'react-ga';
 // import mixpanesl from 'mixpanel-browser'
 
 import CONFIG from '../data/config.json'
@@ -23,6 +24,8 @@ export default function App({ Component, pageProps }) {
     // gtag('config', 'G-BH4EFRY18K')
     // mixpanel.init(CONFIG.mixPanel.token)
     // mixpanel.track('Site Open');
+    ReactGA.initialize(CONFIG.googleAnalytics.key);
+    ReactGA.pageview(window.location.pathname + window.location.search);
   }, [])
 
   const props = {
