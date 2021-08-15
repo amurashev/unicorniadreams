@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Link from 'next/link'
 
 import Layout from '../../components/Layout'
 import Listing from '../../components/Listing'
@@ -7,6 +6,7 @@ import Listing from '../../components/Listing'
 import styles from './[slug].module.scss'
 
 import LISTINGS from '../../data/listings.json'
+import CONFIG from '../../data/config.json'
 import { mapListing, mapCategory, mapShippingInfo } from '../../utils/data'
 import { getListingIdBySlug } from '../../utils/helpers'
 import {
@@ -94,20 +94,18 @@ export default function Item({
   shippingInfo,
   category,
   similarListings,
-  context,
 }: {
   listing: ListingType
   shippingInfo: ShippingInfo
   category?: Category
   similarListings: ListingType[]
-  context: any
 }) {
   const today = new Date()
   const from = new Date()
   const to = new Date()
 
-  const daysCountFrom = 10
-  const daysCountTo = 20
+  const daysCountFrom = CONFIG.shippingDetails.transitTime.min
+  const daysCountTo = CONFIG.shippingDetails.transitTime.max
 
   const options = { month: 'short' as 'short', day: 'numeric' as 'numeric' }
   const dateFrom = new Intl.DateTimeFormat('en-US', options).format(
@@ -118,7 +116,6 @@ export default function Item({
   )
   const arrival = `${dateFrom} - ${dateTo}`
 
-  const title = `Buy ${listing.title} - Unicornia Dreams`
   const h1 = listing.meta ? listing.meta.h1 : listing.title
 
   // TODO: Site rating count
@@ -132,7 +129,7 @@ export default function Item({
     description: listing.description,
     brand: {
       '@type': 'Brand',
-      name: 'Unicornia Dreams',
+      name: CONFIG.brandName,
     },
     aggregateRating: {
       '@type': 'AggregateRating',
@@ -154,13 +151,13 @@ export default function Item({
           '@type': 'ShippingDeliveryTime',
           handlingTime: {
             '@type': 'QuantitativeValue',
-            minValue: '1',
-            maxValue: '3',
+            minValue: CONFIG.shippingDetails.handlingTime.min,
+            maxValue: CONFIG.shippingDetails.handlingTime.max,
           },
           transitTime: {
             '@type': 'QuantitativeValue',
-            minValue: daysCountFrom,
-            maxValue: daysCountTo,
+            minValue: CONFIG.shippingDetails.transitTime.min,
+            maxValue: CONFIG.shippingDetails.transitTime.max,
           },
         },
       },
@@ -176,30 +173,17 @@ export default function Item({
   }
 
   return (
-    <Layout>
+    <Layout
+      title={`Buy ${listing.title}`}
+      description={listing.meta ? listing.meta.description : ''}
+      keywords={listing.tags.join(', ')}
+    >
       <Head>
-        <title>{title}</title>
         <meta name="keywords" content={listing.tags.join(', ')} />
-        <meta property="og:title" content={title} />
-
-        {listing.meta && (
-          <>
-            <meta name="description" content={listing.meta.description} />
-            <meta
-              property="og:description"
-              content={listing.meta.description}
-            />
-          </>
-        )}
 
         {listing.mainImage && (
           <meta property="og:image" content={listing.mainImage.large} />
         )}
-
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={context.url} />
-        <meta property="og:locale" content="en_US" />
-        <meta property="og:site_name" content="Unicornia Dreams" />
       </Head>
 
       <div className={styles.content}>

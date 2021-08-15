@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Link from 'next/link'
 
 import styles from './[slug].module.scss'
 
@@ -55,31 +54,22 @@ export default function Item({
   category,
   listings,
   similarCategories,
-  context,
 }: {
   category: Category
   listings: ListingType[]
   similarCategories: Category[]
-  context: any
 }) {
-  const title = `${category.meta.title} - Unicornia Dreams`
   return (
-    <Layout>
+    <Layout
+      title={`Buy ${category.meta.title} handmade`}
+      description={category.meta.description}
+    >
       <Head>
-        <title>{title}</title>
-        <meta name="description" content={category.meta.description} />
-
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={category.meta.description} />
         {category.mainImage.large && (
           <meta property="og:image" content={category.mainImage.large} />
         )}
-
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={context.url} />
-        <meta property="og:locale" content="en_US" />
-        <meta property="og:site_name" content="Unicornia Dreams" />
       </Head>
+
       <CategoryHeader item={category} />
 
       <div className={styles.content}>

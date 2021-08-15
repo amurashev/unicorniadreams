@@ -4,9 +4,9 @@ import { useRouter } from 'next/router'
 import lozad from 'lozad'
 import mixpanel from 'mixpanel-browser'
 
-import '../styles/global.scss'
+import CONFIG from '../data/config.json'
 
-const host = 'http://unicorniadreams.store'
+import '../styles/global.scss'
 
 export default function App({ Component, pageProps }) {
   const { asPath } = useRouter()
@@ -21,16 +21,15 @@ export default function App({ Component, pageProps }) {
     // gtag('js', new Date())
     // @ts-ignore
     // gtag('config', 'G-BH4EFRY18K')
-    mixpanel.init('9df06fac58017236829f176956d86e6a')
+    mixpanel.init(CONFIG.mixPanel.token)
     mixpanel.track('Site Open');
   }, [])
 
   const props = {
     ...pageProps,
     context: {
-      host,
       path: asPath,
-      url: `${host}${asPath}`,
+      url: `${CONFIG.host}${asPath}`,
     },
   }
 

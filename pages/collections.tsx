@@ -27,10 +27,15 @@ export async function getStaticProps() {
 export default function Collections({ categories }) {
   return (
     <div>
-      <Layout>
+      <Layout
+        title={META.collections.title}
+        description={META.collections.description}
+      >
         <Head>
-          <title>{META.collections.title}  - Unicornia Dreams</title>
-          <meta name="description" content={META.collections.description} />
+          <meta
+            property="og:image"
+            content={'/images/categories/32651447.jpg'}
+          />
         </Head>
         <div>
           <div className={styles.categories}>

@@ -8,10 +8,15 @@ import Layout from '../components/Layout'
 export default function About() {
   return (
     <div>
-      <Layout>
+      <Layout
+        title={META.about.title}
+        description={META.about.description}
+      >
         <Head>
-          <title>{META.about.title}</title>
-          <meta name="description" content={META.about.description} />
+          <meta
+            property="og:image"
+            content={'/images/about.jpg'}
+          />
         </Head>
 
         <div className={styles.content}>

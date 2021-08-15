@@ -1,17 +1,48 @@
 import Head from 'next/head'
-import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 import styles from './styles.module.scss'
 
-const meta = {
-  title: 'UnicorniaDreams: Magic home decor & baby toys',
+import CONFIG from '../../data/config.json'
+
+type Props = {
+  children: React.ReactChild | React.ReactChild[]
+  title: string
+  description: string
+  keywords?: string
 }
 
-export default function Layout({ children }) {
+export default function Layout({
+  children,
+  title,
+  description,
+  keywords,
+}: Props) {
+  const { asPath } = useRouter()
+  const context = {
+    path: asPath,
+    url: `${CONFIG.host}${asPath}`,
+  }
+  const finalTitle = `${title} - ${CONFIG.brandName}`
+
   return (
     <div>
       <Head>
-        <title>{meta.title}</title>
+        <title>{finalTitle}</title>
+        <meta property="og:title" content={finalTitle} />
+
+        <meta name="description" content={description} />
+        <meta property="og:description" content={description || ''} />
+
+        {keywords && (
+          <meta name="keywords" content={keywords} />
+        )}
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={context.url} />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:site_name" content={CONFIG.brandName} />
+
         <link rel="icon" href="/favicon.ico" />
         <link
           rel="icon"
@@ -44,14 +75,14 @@ export default function Layout({ children }) {
               className=""
               src="/images/unicornia_logo_70.jpg"
               srcSet="/images/unicornia_logo_140.jpg 2x, /images/unicornia_logo_210.jpg 3x"
-              alt="UnicorniaDreams logo"
+              alt={`${CONFIG.brandName} logo`}
               width={70}
               height={70}
             />
           </div>
 
           <div className={styles.headerSite}>
-            <div className={styles.siteName}>UnicorniaDreams</div>
+            <div className={styles.siteName}>{CONFIG.brandName}</div>
             <div className={styles.slogan}>Magic home decor & baby toys</div>
           </div>
         </a>
@@ -59,7 +90,9 @@ export default function Layout({ children }) {
       <main className={styles.content}>{children}</main>
 
       <footer className={styles.footer}>
-        <div className={styles.footerContent}>© 2019-2021 UnicorniaDreams</div>
+        <div className={styles.footerContent}>
+          © 2019-2021 {CONFIG.brandName}
+        </div>
       </footer>
     </div>
   )

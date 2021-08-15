@@ -17,38 +17,28 @@ export async function getStaticProps() {
     .map(mapListing)
     .filter((item) => item.isOnHome)
     .sort((a, b) => b.order - a.order)
-  const categories = shop.Sections.map(mapCategory)
-    .filter(getIsCategoryShown)
-    .sort((a, b) => a.order - b.order)
+  // const categories = shop.Sections.map(mapCategory)
+  //   .filter(getIsCategoryShown)
+  //   .sort((a, b) => a.order - b.order)
 
   return {
     props: {
       shop,
       listings,
-      categories,
+      // categories,
     },
   }
 }
 
-export default function Home({ shop, listings, categories, context }) {
+export default function Home({ listings }) {
   return (
     <div>
-      <Layout>
+      <Layout title={META.home.title} description={META.home.description}>
         <Head>
-          <title>{META.home.title}</title>
-          <meta name="description" content={META.home.description} />
-
-          <meta property="og:title" content={META.home.title} />
-          <meta property="og:description" content={META.home.description} />
           <meta
             property="og:image"
             content={'/images/categories/32651447.jpg'}
           />
-
-          <meta property="og:type" content="website" />
-          <meta property="og:url" content={context.url} />
-          <meta property="og:locale" content="en_US" />
-          <meta property="og:site_name" content="Unicornia Dreams" />
         </Head>
 
         <BaseBackgroundSection
