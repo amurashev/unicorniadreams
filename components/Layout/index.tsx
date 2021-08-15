@@ -34,9 +34,7 @@ export default function Layout({
         <meta name="description" content={description} />
         <meta property="og:description" content={description || ''} />
 
-        {keywords && (
-          <meta name="keywords" content={keywords} />
-        )}
+        {keywords && <meta name="keywords" content={keywords} />}
 
         <meta property="og:type" content="website" />
         <meta property="og:url" content={context.url} />
@@ -66,7 +64,10 @@ export default function Layout({
           name="google-site-verification"
           content="rJnAZHvqGCMOxwOWk5kL4SBbj3baUQu96DZ6-KujDKM"
         />
-        {/* <script async src="https://www.googletagmanager.com/gtag/js?id=G-BH4EFRY18K" /> */}
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${CONFIG.googleAnalytics.key}`}
+        />
       </Head>
       <header className={styles.header}>
         <a href="/" className={styles.headerLink}>
