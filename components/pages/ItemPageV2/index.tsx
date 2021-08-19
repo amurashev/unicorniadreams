@@ -13,6 +13,7 @@ import { Category, Listing as ListingType } from '../../../types'
 
 import styles from './styles.module.scss'
 import { CATEGORIES_ID } from '../../../constants'
+import { title } from 'node:process'
 
 const Section = ({
   title,
@@ -130,6 +131,7 @@ export default function ItemPageV1({
                 <div className={styles.imageBox}>
                   <img
                     className="lozad"
+                    alt={`${h1} image`}
                     // layout="fill"
                     // width="100%"
                     // height="100%"
