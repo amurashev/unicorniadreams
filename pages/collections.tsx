@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import styles from './collections.module.css'
+import styles from './collections.module.scss'
 
 import META from '../data/meta.json'
 

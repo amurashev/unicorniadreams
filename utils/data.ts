@@ -1,7 +1,7 @@
 import CATEGORIES from '../data/categories.json'
 import LISTINGS from '../data/listings.json'
 
-import { Listing, Category } from './types'
+import { Listing, Category } from '../types'
 import { getIsRawListingCorrect } from './helpers'
 
 export const mapImage = (raw: any) => {
@@ -33,6 +33,7 @@ export const mapListing = (raw: any): Listing => {
     materials: raw.materials,
     slug: null,
     url: null,
+    measurements: null,
     mainImage: null,
     images: [],
     meta: null,
@@ -55,6 +56,7 @@ export const mapListing = (raw: any): Listing => {
       isOn: fixedData.isOn,
       isOnHome: fixedData.isOnHome,
       order: fixedData.order || 0,
+      measurements: fixedData.measurements || null,
       slug: fixedData.slug,
       url: '/items/' + fixedData.slug,
       meta: fixedData.meta,

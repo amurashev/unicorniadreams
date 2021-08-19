@@ -58,4 +58,8 @@
   @include gt-sm {
     width: 33.33%;
   }
+
+  @include gt-md {
+    width: 33.33%;
+  }
 }

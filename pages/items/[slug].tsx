@@ -1,9 +1,7 @@
 import Head from 'next/head'
 
 import Layout from '../../components/Layout'
-import Listing from '../../components/Listing'
-
-import styles from './[slug].module.scss'
+import ItemPageV2 from '../../components/pages/ItemPageV2'
 
 import LISTINGS from '../../data/listings.json'
 import CONFIG from '../../data/config.json'
@@ -18,7 +16,7 @@ import {
   Category,
   Listing as ListingType,
   ShippingInfo,
-} from '../../utils/types'
+} from '../../types'
 
 export async function getStaticPaths() {
   const listings = Object.keys(LISTINGS).map((key) => LISTINGS[key].slug)
@@ -76,7 +74,7 @@ export async function getStaticProps(context) {
     similarListings = [
       ...listings.slice(indexOfCurrentElement),
       ...listings.slice(0, indexOfCurrentElement),
-    ].slice(1, 4)
+    ].slice(1, 5)
   }
 
   return {
@@ -114,12 +112,11 @@ export default function Item({
   const dateTo = new Intl.DateTimeFormat('en-US', options).format(
     from.setDate(to.getDate() + daysCountTo)
   )
-  const arrival = `${dateFrom} - ${dateTo}`
 
+  const isFree = shippingInfo && shippingInfo.primaryCost === '0.00'
   const h1 = listing.meta ? listing.meta.h1 : listing.title
 
   // TODO: Site rating count
-
   const schema: any = {
     '@context': 'https://schema.org/',
     '@type': 'Product',
@@ -167,7 +164,7 @@ export default function Item({
   if (shippingInfo && shippingInfo.primaryCost) {
     schema.offers.shippingDetails.shippingRate = {
       '@type': 'MonetaryAmount',
-      value: shippingInfo.primaryCost === '0.00' ? 0 : shippingInfo.primaryCost,
+      value: isFree ? 0 : shippingInfo.primaryCost,
       currency: 'USD',
     }
   }
@@ -179,194 +176,21 @@ export default function Item({
       keywords={listing.tags.join(', ')}
     >
       <Head>
-        <meta name="keywords" content={listing.tags.join(', ')} />
-
         {listing.mainImage && (
           <meta property="og:image" content={listing.mainImage.large} />
         )}
       </Head>
 
-      <div className={styles.content}>
-        <div className={styles.imageListMobile}>
-          <div className={styles.imageItemFull}>
-            <div className={styles.imageBox}>
-              <div
-                className={styles.image}
-                style={{
-                  backgroundImage: `url(${listing.images[0].large})`,
-                }}
-                itemProp="image"
-              />
-            </div>
-          </div>
-        </div>
-        <div className={styles.imageListDesktop}>
-          {listing.images[0] && (
-            <div className={styles.imageItemFirst}>
-              <div className={styles.imageBox}>
-                <div
-                  className={styles.image}
-                  style={{
-                    backgroundImage: `url(${listing.images[0].large})`,
-                  }}
-                />
-              </div>
-            </div>
-          )}
-
-          {listing.images[1] && (
-            <div className={styles.imageItemSecond}>
-              <div className={styles.imageBox}>
-                <div
-                  className={styles.image}
-                  style={{
-                    backgroundImage: `url(${listing.images[1].large})`,
-                  }}
-                />
-              </div>
-            </div>
-          )}
-
-          <div className={styles.list}>
-            {listing.images[2] && (
-              <div className={styles.imageItem}>
-                <div className={styles.imageBox}>
-                  <div
-                    className={styles.image}
-                    style={{
-                      backgroundImage: `url(${listing.images[2].large})`,
-                    }}
-                  />
-                </div>
-              </div>
-            )}
-
-            {listing.images[3] && (
-              <div className={styles.imageItem}>
-                <div className={styles.imageBox}>
-                  <div
-                    className={styles.image}
-                    style={{
-                      backgroundImage: `url(${listing.images[3].large})`,
-                    }}
-                  />
-                </div>
-              </div>
-            )}
-          </div>
-          {listing.images[4] && (
-            <div className={styles.imageItemSecond}>
-              <div className={styles.imageBox}>
-                <div
-                  className={styles.image}
-                  style={{
-                    backgroundImage: `url(${listing.images[4].large})`,
-                  }}
-                />
-              </div>
-            </div>
-          )}
-        </div>
-
-        <div className={styles.firstLine}>
-          <div className={styles.titleBox}>
-            <h1 className={styles.title}>{h1}</h1>
-            <div className={styles.price}>
-              <span>$</span>
-              <span>{listing.price}</span>
-            </div>
-          </div>
-          <div className={styles.buttonBox}>
-            <a
-              href={listing.etsyUrl}
-              rel="noopener noreferrer"
-              className={styles.button}
-            >
-              Buy it now on Etsy.com
-            </a>
-          </div>
-        </div>
-
-        <div className={styles.buttonBoxMobile}>
-          <a
-            href={listing.etsyUrl}
-            rel="noopener noreferrer"
-            className={styles.button}
-          >
-            Buy it now on Etsy.com
-          </a>
-        </div>
-
-        <div className={styles.lineBox} />
-
-        <div className={styles.highlightsBox}>
-          <h2>Shipping</h2>
-          <ul>
-            {shippingInfo && shippingInfo.primaryCost === '0.00' && (
-              <li>
-                Shipping cost: <span>Free</span>
-              </li>
-            )}
-
-            <li>
-              Estimated arrival: <span>{arrival}</span>
-            </li>
-          </ul>
-        </div>
-
-        <div className={styles.lineBox} />
-
-        <div className={styles.highlightsBox}>
-          <h2>Highlights</h2>
-          <ul>
-            <li>
-              <div>Handmade</div>
-            </li>
-            <li>
-              <div>Materials: {listing.materials.join(', ')}</div>
-            </li>
-            <li>
-              <div>Tags: {listing.tags.join(', ')}</div>
-            </li>
-          </ul>
-        </div>
-
-        <div className={styles.lineBox} />
-
-        <div className={styles.highlightsBox}>
-          <h2>Description</h2>
-          <p
-            className={styles.description}
-            dangerouslySetInnerHTML={{
-              __html: `${listing.description}`,
-            }}
-          ></p>
-        </div>
-
-        {similarListings && similarListings.length > 0 && (
-          <>
-            <div className={styles.lineBox} />
-
-            <div className={styles.highlightsBox}>
-              <h2>Similar items</h2>
-              <div className={styles.listings}>
-                {similarListings.map((item) => (
-                  <div key={item.id} className={styles.listing}>
-                    <Listing item={item} />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </>
-        )}
-
-        {category && (
-          <div className={styles.backLinkBox}>
-            <a href={category.url} className={styles.backLink}>
-              Back to category
-            </a>
-          </div>
-        )}
+      <div>
+        <ItemPageV2
+          listing={listing}
+          category={category}
+          similarListings={similarListings}
+          h1={h1}
+          dateFrom={dateFrom}
+          dateTo={dateTo}
+          shippingCost={shippingInfo && shippingInfo.primaryCost}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

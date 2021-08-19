@@ -8,13 +8,13 @@
 
   background-color: #fff;
   color: $gray9;
-  box-shadow: $boxShadow1;
-  border-radius: 8px;
+  // box-shadow: $boxShadow1;
+  // border-radius: 8px;
   overflow: hidden;
 
-  &:hover {
-    box-shadow: $boxShadow2;
-  }
+  // &:hover {
+  //   box-shadow: $boxShadow2;
+  // }
 }
 
 .imageBox {
@@ -46,27 +46,22 @@
 }
 
 .textBox {
-  padding: 10px;
+  padding: 10px 0;
 }
 
 .title {
-  font-weight: 400;
-  font-size: 14px;
+  font-weight: 300;
+  font-size: 15px;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
   white-space: nowrap !important;
   min-width: 0 !important;
   width: 100%;
-}
-
-.category {
-  font-size: 13px;
-  color: rgb(135 138 142);
-  margin-top: 2px;
+  color: $gray8;
 }
 
 .price {
-  font-size: 16px;
-  margin-top: 2px;
+  font-size: 18px;
   font-weight: 700;
+  margin-top: 2px;
 }

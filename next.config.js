@@ -12,4 +12,8 @@ module.exports = withImages({
     )
     return config
   },
+  images: {
+    domains: ['i.etsystatic.com'],
+    // loader: 'imgix',
+  },
 })

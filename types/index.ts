@@ -1,3 +1,5 @@
+import { CATEGORIES_ID } from "../constants"
+
 export type Image = {
   small: string
   medium: string
@@ -28,7 +30,7 @@ export type Listing = {
   tags: string[]
   views: number
   numFavorers: number
-  categoryId: number
+  categoryId: CATEGORIES_ID
   mainImage?: Image
   shippingInfo?: {
     isFree: boolean
@@ -36,6 +38,10 @@ export type Listing = {
   }
   images?: Image[]
   materials: string[]
+  measurements?: {
+    label: string
+    value: string
+  }[]
   url?: string
   slug?: string
   isOnHome?: boolean
@@ -43,12 +49,13 @@ export type Listing = {
   meta?: {
     h1: string
     description: string
+    keywords: string[]
     title: string
   }
 }
 
 export type Category = {
-  id: number
+  id: CATEGORIES_ID
   isOn: boolean
   title: string
   url?: string
