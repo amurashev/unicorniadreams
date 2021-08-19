@@ -1,7 +1,7 @@
 import CATEGORIES from '../data/categories.json'
 import LISTINGS from '../data/listings.json'
 
-import { Category } from './types'
+import { Category } from '../types'
 
 export const getIsRawListingCorrect = (item: any): boolean =>
   item.state === 'active'

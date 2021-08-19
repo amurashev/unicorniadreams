@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 import Listing from '../../../components/Listing'
 
-import { Listing as ListingType } from '../../../utils/types'
+import { Listing as ListingType } from '../../../types'
 
 import styles from './styles.module.scss'
 

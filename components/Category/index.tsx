@@ -1,4 +1,4 @@
-import { Category } from '../../utils/types'
+import { Category } from '../../types'
 import BaseBackgroundSection from '../BaseBackgroundSection'
 import styles from './styles.module.css'
 

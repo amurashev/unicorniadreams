@@ -1,4 +1,4 @@
-import { Listing } from '../../utils/types'
+import { Listing } from '../../types'
 
 import styles from './styles.module.scss'
 

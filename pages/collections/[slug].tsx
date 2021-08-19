@@ -11,7 +11,7 @@ import CATEGORIES from '../../data/categories.json'
 import { getShopSection, getShop } from '../../utils/etsy'
 import { mapCategory } from '../../utils/data'
 import { getCategoryIdBySlug, getIsCategoryShown } from '../../utils/helpers'
-import { Category, Listing as ListingType } from '../../utils/types'
+import { Category, Listing as ListingType } from '../../types'
 
 export async function getStaticPaths() {
   const categories = Object.keys(CATEGORIES).map((key) => CATEGORIES[key].slug)
