@@ -38,7 +38,11 @@ commonPages = commonPages
 
 const hostName = process.env.HOSTNAME || CONFIG.host
 
-console.log(`Start creating of sitemap for: ${hostName}. Output path: ${outputFilePath}`)
+console.log(`Start creating of sitemap for: ${hostName}`)
+console.log(`Output path: ${outputFilePath}`)
+console.log(`List of required pages: `)
+console.log(commonPages)
+console.log(`\n`)
 
 try {
   // Create a stream to write to
@@ -53,8 +57,8 @@ try {
         const result = data.toString()
         fs.writeFileSync(outputFilePath, result)
 
-        console.log(`${outputFilePath} is created`)
-        console.log(commonPages)
+        console.log(`${outputFilePath} is created: `)
+        console.log(result)
         process.exit(0)
       })
       .catch((err) => {
