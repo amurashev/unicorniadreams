@@ -5,6 +5,12 @@ export type Image = {
   medium: string
   large: string
   full: string
+  sizes: {
+    large: {
+      width: number
+      height: number
+    }
+  }
 }
 
 export type ShippingInfo = {

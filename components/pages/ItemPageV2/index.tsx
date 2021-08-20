@@ -13,7 +13,6 @@ import { Category, Listing as ListingType } from '../../../types'
 
 import styles from './styles.module.scss'
 import { CATEGORIES_ID } from '../../../constants'
-import { title } from 'node:process'
 
 const Section = ({
   title,
@@ -77,20 +76,35 @@ export default function ItemPageV1({
 
   return (
     <div className={styles.container}>
+      <div className={styles.imagesMobile}>
+        <SwipeableViews>
+          {listing.images.map((item, key) => (
+            <div key={key} className={styles.imageBoxMobile}>
+              <div key={key} className={styles.imageBoxMobileInner}>
+                <Image src={item.large} layout="fill" />
+                {/* <div
+                      // className="lozad"
+                      // TODO srcSet
+                      // style={{
+                      //   backgroundImage: `url(${item.large})`,
+                      // }}
+                    /> */}
+              </div>
+            </div>
+          ))}
+        </SwipeableViews>
+      </div>
+
       <div
         className={styles.bgBox}
-        style={{
-          backgroundImage: `url(${mainImage})`,
-        }}
+        // style={{
+        //   backgroundImage: `url(${mainImage})`,
+        // }}
       >
+        <Image src={mainImage} layout="fill" />
         <div className={styles.imageInnerBox}>
           <div className={styles.titleBox}>
             <h1 className={styles.title}>{h1}</h1>
-
-            {/* <div className={styles.price}>
-              <span>$</span>
-              <span>{listing.price}</span>
-            </div> */}
 
             <p className={styles.descriptionShort}>
               {listing.meta.description}
@@ -98,7 +112,7 @@ export default function ItemPageV1({
             <a
               href={listing.etsyUrl}
               rel="noopener noreferrer"
-              className={styles.button}
+              className={styles.topButton}
             >
               Buy on Etsy.com
             </a>
@@ -108,33 +122,16 @@ export default function ItemPageV1({
 
       <div className={styles.secondLine}>
         <div className={styles.leftSide}>
-          <div className={styles.imagesMobile}>
-            <SwipeableViews>
-              {listing.images.map((item, key) => (
-                <div key={key} className={styles.imageBoxMobile}>
-                  <div key={key} className={styles.imageBoxMobileInner}>
-                    <div
-                      // className="lozad"
-                      // TODO srcSet
-                      style={{
-                        backgroundImage: `url(${item.large})`,
-                      }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </SwipeableViews>
-          </div>
           <div className={styles.imagesDesktop}>
             {listing.images.map((item, key) => (
               <div key={key} className={styles.imageItemFull}>
                 <div className={styles.imageBox}>
-                  <img
-                    className="lozad"
+                  <Image
+                    // className="lozad"
                     alt={`${h1} image`}
-                    // layout="fill"
-                    // width="100%"
-                    // height="100%"
+                    layout="intrinsic"
+                    width={item.sizes.large.width}
+                    height={item.sizes.large.height}
                     src={item.large}
                     // TODO srcSet
                     // style={{

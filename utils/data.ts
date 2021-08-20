@@ -10,6 +10,13 @@ export const mapImage = (raw: any) => {
     medium: raw.url_170x135,
     large: raw.url_570xN,
     full: raw.url_fullxfull,
+
+    sizes: {
+      large: {
+        width: 570,
+        height: Math.round(570 * raw.full_height / raw.full_width),
+      },
+    }
   }
 
   return image
