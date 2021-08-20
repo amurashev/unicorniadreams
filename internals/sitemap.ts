@@ -35,27 +35,34 @@ commonPages = commonPages
     }))
   )
 
-// Create a stream to write to
-const stream = new SitemapStream({
-  hostname: process.env.HOSTNAME,
-})
+console.log(`Start creating of sitemap for: ${process.env.HOSTNAME}`)
 
-// Return a promise that resolves with your XML string
 try {
-  streamToPromise(Readable.from(commonPages).pipe(stream))
-    .then((data) => {
-      const result = data.toString()
-      fs.writeFileSync(outputFilePath, result)
+  // Create a stream to write to
+  const stream = new SitemapStream({
+    hostname: process.env.HOSTNAME,
+  })
 
-      console.log(`${outputFilePath} is created`)
-      console.log(commonPages)
-      process.exit(0)
-    })
-    .catch((err) => {
-      console.log(`${outputFilePath} is not created: ${err}`)
-      process.exit(1)
-    })
+  // Return a promise that resolves with your XML string
+  try {
+    streamToPromise(Readable.from(commonPages).pipe(stream))
+      .then((data) => {
+        const result = data.toString()
+        fs.writeFileSync(outputFilePath, result)
+
+        console.log(`${outputFilePath} is created`)
+        console.log(commonPages)
+        process.exit(0)
+      })
+      .catch((err) => {
+        console.log(`${outputFilePath} is not created (streamToPromise): ${err}`)
+        process.exit(1)
+      })
+  } catch (err) {
+    console.log(`${outputFilePath} is not created (streamToPromise): ${err}`)
+    process.exit(1)
+  }
 } catch (err) {
-  console.log(`${outputFilePath} is not created: ${err}`)
+  console.log(`${outputFilePath} is not created (SitemapStream): ${err}`)
   process.exit(1)
 }
