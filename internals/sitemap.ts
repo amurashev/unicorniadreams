@@ -5,6 +5,7 @@ require('dotenv').config()
 
 const LISTINGS = require('../data/listings.json')
 const CATEGORIES = require('../data/categories.json')
+const CONFIG = require('../data/config.json')
 
 const listings = Object.keys(LISTINGS).map((key) => LISTINGS[key].slug)
 const categories = Object.keys(CATEGORIES).map((key) => CATEGORIES[key].slug)
@@ -35,12 +36,14 @@ commonPages = commonPages
     }))
   )
 
-console.log(`Start creating of sitemap for: ${process.env.HOSTNAME}`)
+const hostName = process.env.HOSTNAME || CONFIG.host
+
+console.log(`Start creating of sitemap for: ${hostName}. Output path: ${outputFilePath}`)
 
 try {
   // Create a stream to write to
   const stream = new SitemapStream({
-    hostname: process.env.HOSTNAME,
+    hostname: hostName,
   })
 
   // Return a promise that resolves with your XML string
@@ -55,7 +58,9 @@ try {
         process.exit(0)
       })
       .catch((err) => {
-        console.log(`${outputFilePath} is not created (streamToPromise): ${err}`)
+        console.log(
+          `${outputFilePath} is not created (streamToPromise): ${err}`
+        )
         process.exit(1)
       })
   } catch (err) {
