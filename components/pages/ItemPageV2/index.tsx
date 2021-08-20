@@ -81,7 +81,7 @@ export default function ItemPageV1({
           {listing.images.map((item, key) => (
             <div key={key} className={styles.imageBoxMobile}>
               <div key={key} className={styles.imageBoxMobileInner}>
-                <Image src={item.large} layout="fill" />
+                <Image src={item.large} layout="fill" alt={`${h1} image`} />
                 {/* <div
                       // className="lozad"
                       // TODO srcSet
@@ -101,7 +101,7 @@ export default function ItemPageV1({
         //   backgroundImage: `url(${mainImage})`,
         // }}
       >
-        <Image src={mainImage} layout="fill" />
+        <Image src={mainImage} layout="fill" alt={`${h1} image`} />
         <div className={styles.imageInnerBox}>
           <div className={styles.titleBox}>
             <h1 className={styles.title}>{h1}</h1>
