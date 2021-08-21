@@ -54,7 +54,7 @@ export async function getStaticProps(context) {
     ? mapShippingInfo(shippingInfoRaw)
     : undefined
 
-  let category
+  let category = null
   let similarListings = []
 
   if (listing.categoryId) {
