@@ -3,6 +3,16 @@
     "isOn": true,
     "isOnHome": true,
     "slug": "wisteria-baby-crib-floral-flower-mobile",
+    "measurements": [
+      {
+        "label": "The diameter of the ring",
+        "value": "20 cm/7,8 inches"
+      },
+      {
+        "label": "Full length",
+        "value": "47 cm/18,5 inches"
+      }
+    ],
     "meta": {
       "h1": "Wisteria baby crib mobile / Floral Flower mobile",
       "keywords": [
@@ -19,6 +29,20 @@
     "isOnHome": true,
     "order": 90,
     "slug": "ocean-surfing-surfer-mobile-boho-nursery",
+    "measurements": [
+      {
+        "label": "The diameter of the ring",
+        "value": "18 cm/7 inches"
+      },
+      {
+        "label": "Full length",
+        "value": "45 cm/17,7 inches"
+      },
+      {
+        "label": "Bus size",
+        "value": "9,5 cm/3,7 inches"
+      }
+    ],
     "meta": {
       "h1": "Ocean Surfing Mobile / Surfer VW bus mobile / Boho nursery",
       "keywords": [
@@ -37,6 +61,20 @@
     "isOn": true,
     "isOnHome": true,
     "slug": "adventures-baby-crib-mobile-rainbow",
+    "measurements": [
+      {
+        "label": "The diameter of the ring",
+        "value": "18 cm/7 inches"
+      },
+      {
+        "label": "Full length",
+        "value": "45 cm/17,7 inches"
+      },
+      {
+        "label": "Bus size",
+        "value": "9,5 cm/3,7 inches"
+      }
+    ],
     "meta": {
       "h1": "Adventures Baby Crib Mobile / VW Bus Mobile / Boho nursery",
       "keywords": [
@@ -55,6 +93,16 @@
     "isOn": true,
     "isOnHome": false,
     "slug": "pink-wisteria-mobile-floral-flower",
+    "measurements": [
+      {
+        "label": "The diameter of the ring",
+        "value": "20 cm/7,8 inches"
+      },
+      {
+        "label": "Full length",
+        "value": "47 cm/18,5 inches"
+      }
+    ],
     "meta": {
       "h1": "Pink wisteria mobile / Floral Flower mobile",
       "keywords": [
@@ -71,6 +119,7 @@
     "isOnHome": true,
     "order": 80,
     "slug": "sloth-nursery-decor-garland-animal-tropical-felt",
+    "measurements": [],
     "meta": {
       "h1": "Sloth Nursery Decor Garland / Animal Felt Decorations",
       "keywords": [
@@ -89,6 +138,7 @@
     "isOnHome": true,
     "order": 70,
     "slug": "unicorn-baby-mobile-white-horse-rib",
+    "measurements": [],
     "meta": {
       "h1": "Unicorn Baby Mobile / White Horse Crib",
       "keywords": [
@@ -107,6 +157,7 @@
     "isOnHome": true,
     "order": 60,
     "slug": "personalised-nursery-decor-name-garland",
+    "measurements": [],
     "meta": {
       "h1": "Personalised Nursery Decor Name Garland",
       "keywords": [
@@ -124,6 +175,7 @@
     "isOn": true,
     "isOnHome": true,
     "slug": "moth-felt-decoration-butterfly-wall-decor",
+    "measurements": [],
     "meta": {
       "h1": "Moth Felt Decoration / Butterfly Wall Decor",
       "keywords": [
@@ -141,6 +193,7 @@
     "isOn": true,
     "isOnHome": true,
     "slug": "seagull-mobile-nautical-ocean-nursery",
+    "measurements": [],
     "meta": {
       "h1": "Seagull Mobile / Ocean Nursery",
       "keywords": [
@@ -157,6 +210,7 @@
     "isOn": true,
     "isOnHome": true,
     "slug": "crane-baby-crib-mobile-magic-wizard",
+    "measurements": [],
     "meta": {
       "h1": "Crane baby crib mobile / Swan and Wizard mobile",
       "keywords": [
@@ -174,6 +228,7 @@
     "isOnHome": true,
     "order": 100,
     "slug": "tropical-ocean-fishes-crib-mobile-sea-fishes",
+    "measurements": [],
     "meta": {
       "h1": "Tropical Ocean Fishes Crib Mobile / Sea Fishes Baby Mobile",
       "keywords": [
@@ -188,6 +243,7 @@
     "isOn": true,
     "isOnHome": false,
     "slug": "yoga-sloth-nursery-tropical-nursery-decor",
+    "measurements": [],
     "meta": {
       "h1": "Yoga Sloth Nursery Pendant / Tropical Nursery Decor",
       "keywords": [
@@ -204,6 +260,7 @@
     "isOn": true,
     "isOnHome": false,
     "slug": "whale-baby-mobile-winged-while-crib",
+    "measurements": [],
     "meta": {
       "h1": "Whale Baby Mobile / Winged while crib mobile",
       "keywords": [
@@ -220,6 +277,7 @@
     "isOn": true,
     "isOnHome": true,
     "slug": "woodland-baby-mobile-forest-animals-2",
+    "measurements": [],
     "meta": {
       "h1": "Woodland Baby Mobile / Forest animals Mobile",
       "keywords": [
@@ -237,6 +295,7 @@
     "isOn": true,
     "isOnHome": false,
     "slug": "whale-baby-crib-mobile-ocean-nursery",
+    "measurements": [],
     "meta": {
       "h1": "Whale Baby Crib Mobile / Ocean nursery",
       "keywords": [
@@ -253,6 +312,7 @@
     "isOn": true,
     "isOnHome": true,
     "slug": "baby-mobile-safari-africa-mobile",
+    "measurements": [],
     "meta": {
       "h1": "Baby mobile safari / Africa mobile",
       "keywords": [
@@ -270,6 +330,7 @@
     "isOn": true,
     "isOnHome": true,
     "slug": "adventures-baby-mobile-vw-bus-boho-boy-nursery",
+    "measurements": [],
     "meta": {
       "h1": "Adventures Baby Mobile / VW Bus Travel Boho mobile / Boy Nursery",
       "keywords": [
@@ -288,6 +349,7 @@
     "isOn": true,
     "isOnHome": true,
     "slug": "unicorn-baby-mobile-rainbow-mobile",
+    "measurements": [],
     "meta": {
       "h1": "Unicorn Baby Mobile / Rainbow Mobile",
       "keywords": [
@@ -304,6 +366,7 @@
     "isOn": true,
     "isOnHome": true,
     "slug": "woodland-baby-mobile-forest-animals-3",
+    "measurements": [],
     "meta": {
       "h1": "Woodland Baby Mobile / Forest Animals Mobile",
       "keywords": [
@@ -319,6 +382,7 @@
     "isOn": true,
     "isOnHome": true,
     "slug": "whale-baby-crib-mobile-hot-air-balloon",
+    "measurements": [],
     "meta": {
       "h1": "Whale Baby Crib Mobile / Hot Air Balloon Mobile",
       "keywords": [
@@ -335,6 +399,7 @@
     "isOn": true,
     "isOnHome": true,
     "slug": "clouds-baby-mobile-neutral-nursery",
+    "measurements": [],
     "meta": {
       "h1": "Сlouds baby mobile / Baby shower nursery decor",
       "keywords": [
@@ -367,6 +432,7 @@
     "isOn": true,
     "isOnHome": true,
     "slug": "woodland-baby-mobile-fox-bear-forest",
+    "measurements": [],
     "meta": {
       "h1": "Woodland Baby Mobile / Forest animals mobile",
       "keywords": [
@@ -384,6 +450,7 @@
     "isOn": true,
     "isOnHome": false,
     "slug": "moose-mobile-woodland",
+    "measurements": [],
     "meta": {
       "h1": "Moose mobile / Woodland mobile",
       "keywords": [
@@ -402,6 +469,7 @@
     "isOn": true,
     "isOnHome": true,
     "slug": "woodland-mobile-bear-mountain",
+    "measurements": [],
     "meta": {
       "h1": "Woodland mobile",
       "keywords": [
@@ -419,6 +487,7 @@
     "isOn": true,
     "isOnHome": true,
     "slug": "surfing-nursery-decor-garland-ocean-felt",
+    "measurements": [],
     "meta": {
       "h1": "Surfing Nursery Decor Garland / Ocean Felt Decorations",
       "keywords": [
@@ -435,6 +504,7 @@
     "isOn": true,
     "isOnHome": true,
     "slug": "personalised-nursery-decor-name-garland-felt-decorations",
+    "measurements": [],
     "meta": {
       "h1": "Personalised Nursery Decor Name Garland / Felt Decorations",
       "keywords": [
@@ -452,6 +522,7 @@
     "isOn": true,
     "isOnHome": true,
     "slug": "personalised-nursery-decor-name-garland-felt-name",
+    "measurements": [],
     "meta": {
       "h1": "Personalised Nursery Decor Name Garland / Felt Decorations",
       "keywords": [
@@ -469,6 +540,7 @@
     "isOn": true,
     "isOnHome": false,
     "slug": "plush-crab-baby-gift",
+    "measurements": [],
     "meta": {
       "h1": "Plush Crab / Baby Gift",
       "keywords": [
@@ -482,6 +554,7 @@
     "isOn": true,
     "isOnHome": false,
     "slug": "plush-manta-ray-baby-gift",
+    "measurements": [],
     "meta": {
       "h1": "Plush Manta Ray / Baby Gift",
       "keywords": [
@@ -508,6 +581,7 @@
     "isOn": true,
     "isOnHome": true,
     "slug": "felt-cat-christmas-decorations",
+    "measurements": [],
     "meta": {
       "h1": "Felt Cat Christmas Decorations / Cat Brooches",
       "keywords": [
@@ -555,6 +629,7 @@
     "isOn": true,
     "isOnHome": false,
     "slug": "dinosaur-surfer-blue-mobile-ocean-nursery",
+    "measurements": [],
     "meta": {
       "h1": "Dinosaur Surfer Mobile / Ocean Nursery",
       "keywords": [
@@ -573,6 +648,7 @@
     "isOn": true,
     "isOnHome": false,
     "slug": "blue-wisteria-baby-mobile-floral",
+    "measurements": [],
     "meta": {
       "h1": "Blue wisteria baby mobile / Floral mobile",
       "keywords": [
@@ -588,6 +664,7 @@
     "isOn": true,
     "isOnHome": false,
     "slug": "orca-whale-baby-mobile-ocean-baby-crib",
+    "measurements": [],
     "meta": {
       "h1": "Orca whale baby mobile / Ocean baby crib",
       "keywords": [
@@ -603,6 +680,7 @@
     "isOn": true,
     "isOnHome": false,
     "slug": "rainbow-mobile-cloud-nursery-decor",
+    "measurements": [],
     "meta": {
       "h1": "Rainbow mobile / Cloud nursery decor",
       "keywords": [
@@ -616,6 +694,7 @@
     "isOn": true,
     "isOnHome": false,
     "slug": "sir-red-panda-felt-doll-animal-toy",
+    "measurements": [],
     "meta": {
       "h1": "Sir Red Panda Felt Doll / Stuffed Toy with Clothes",
       "keywords": [
@@ -633,6 +712,7 @@
     "isOn": true,
     "isOnHome": false,
     "slug": "plush-crab-with-felt-flowers-xl",
+    "measurements": [],
     "meta": {
       "h1": "Plush Crab with Felt Flowers XL",
       "keywords": [
@@ -646,6 +726,7 @@
     "isOn": true,
     "isOnHome": false,
     "slug": "big-hammer-fish-toy",
+    "measurements": [],
     "meta": {
       "h1": "Big Hammer Fish Toy",
       "keywords": [
@@ -659,6 +740,7 @@
     "isOn": true,
     "isOnHome": false,
     "slug": "blue-starfish",
+    "measurements": [],
     "meta": {
       "h1": "Blue Starfish",
       "keywords": [
@@ -672,6 +754,7 @@
     "isOn": true,
     "isOnHome": false,
     "slug": "small-baby-fur-seal",
+    "measurements": [],
     "meta": {
       "h1": "Small Baby Fur Seal",
       "keywords": [
@@ -685,6 +768,7 @@
     "isOn": true,
     "isOnHome": false,
     "slug": "blue-plush-hammer-fish",
+    "measurements": [],
     "meta": {
       "h1": "Blue Plush Hammer Fish",
       "keywords": [
@@ -698,6 +782,7 @@
     "isOn": true,
     "isOnHome": false,
     "slug": "big-blue-whale-with-felt-flowers",
+    "measurements": [],
     "meta": {
       "h1": "Big Blue Whale with Felt Flowers",
       "keywords": [
@@ -711,6 +796,7 @@
     "isOn": true,
     "isOnHome": false,
     "slug": "white-plush-octopus-with-felt-flowers",
+    "measurements": [],
     "meta": {
       "h1": "White Plush Octopus with Felt Flowers",
       "keywords": [
@@ -724,6 +810,7 @@
     "isOn": true,
     "isOnHome": false,
     "slug": "plush-shells-set",
+    "measurements": [],
     "meta": {
       "h1": "Plush Shells Set",
       "keywords": [
@@ -737,6 +824,7 @@
     "isOn": true,
     "isOnHome": false,
     "slug": "plush-whale-with-felt-flowers",
+    "measurements": [],
     "meta": {
       "h1": "Plush Whale with Felt Flowers",
       "keywords": [
@@ -750,6 +838,7 @@
     "isOn": true,
     "isOnHome": false,
     "slug": "hammer-fish-toy",
+    "measurements": [],
     "meta": {
       "h1": "Hammer Fish Toy",
       "keywords": [
@@ -763,6 +852,7 @@
     "isOn": true,
     "isOnHome": false,
     "slug": "plush-fur-seal-with-felt-flowers",
+    "measurements": [],
     "meta": {
       "h1": "Plush Fur Seal with Felt Flowers",
       "keywords": [
@@ -776,6 +866,7 @@
     "isOn": true,
     "isOnHome": false,
     "slug": "plush-sea-shell-snail-shell",
+    "measurements": [],
     "meta": {
       "h1": "Plush Sea Shell, Snail Shell",
       "keywords": [
@@ -789,6 +880,7 @@
     "isOn": true,
     "isOnHome": false,
     "slug": "baby-fish-pillow",
+    "measurements": [],
     "meta": {
       "h1": "Baby fish pillow / Nursery decor",
       "keywords": [
@@ -803,6 +895,7 @@
     "isOn": true,
     "isOnHome": false,
     "slug": "fox-doll-in-raincoat",
+    "measurements": [],
     "meta": {
       "h1": "Fox Doll in Raincoat / Animal Felt Doll",
       "keywords": [
@@ -818,6 +911,7 @@
     "isOn": true,
     "isOnHome": false,
     "slug": "cat-doll-in-hoodie",
+    "measurements": [],
     "meta": {
       "h1": "Cat Doll in hoodie / Animal Felt Doll",
       "keywords": [
@@ -833,6 +927,7 @@
     "isOn": true,
     "isOnHome": false,
     "slug": "kitty-doll-in-dress",
+    "measurements": [],
     "meta": {
       "h1": "Kitty Doll in dress / Animal Felt Doll",
       "keywords": [
@@ -848,6 +943,7 @@
     "isOn": true,
     "isOnHome": false,
     "slug": "star-wars-keychain",
+    "measurements": [],
     "meta": {
       "h1": "Star Wars Keychain",
       "keywords": [
@@ -860,6 +956,7 @@
     "isOn": true,
     "isOnHome": false,
     "slug": "tropical-baby-mobile-jungle-nursery",
+    "measurements": [],
     "meta": {
       "h1": "Tropical baby mobile / Jungle nursery",
       "keywords": [
@@ -870,5 +967,36 @@
       ],
       "description": "This beautiful tropical felt mobile with white cockatoo is the best gift for newborn"
     }
-  }
+  },
+  "1057231298": {
+    "isOn": true,
+    "isOnHome": true,
+    "order": 110,
+    "slug": "ocean-surfing-mobile-boho-vw-bus",
+    "measurements": [
+      {
+        "label": "The diameter of the ring",
+        "value": "20 cm/7,8 inches"
+      },
+      {
+        "label": "Full length",
+        "value": "45 cm/17,7 inches"
+      },
+      {
+        "label": "Bus size",
+        "value": "14 cm/5,5 inches"
+      }
+    ],
+    "meta": {
+      "h1": "Ocean Surfing Mobile / Boho travel style nursery",
+      "keywords": [
+        "Ocean Surfing Mobile",
+        "Surfer Lovers Mobile",
+        "VW bus mobile",
+        "Travel baby mobile",
+        "Boho travel nursery"
+      ],
+      "description": "This beautiful VW camper felt mobile is the best gift for newborn or for the baby shower!"
+    }
+  },
 }
