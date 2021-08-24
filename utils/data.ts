@@ -1,7 +1,7 @@
 import CATEGORIES from '../data/categories.json'
 import LISTINGS from '../data/listings.json'
 
-import { Listing, Category } from '../types'
+import { ListingType, CategoryType } from '../types'
 import { getIsRawListingCorrect } from './helpers'
 
 export const mapImage = (raw: any) => {
@@ -22,10 +22,10 @@ export const mapImage = (raw: any) => {
   return image
 }
 
-export const mapListing = (raw: any): Listing => {
+export const mapListing = (raw: any): ListingType => {
   const fixedData = LISTINGS[raw.listing_id]
 
-  let newListing: Listing = {
+  let newListing: ListingType = {
     id: raw.listing_id,
     title: raw.title,
     description: raw.description,
@@ -73,10 +73,10 @@ export const mapListing = (raw: any): Listing => {
   return newListing
 }
 
-export const mapCategory = (raw: any): Category => {
+export const mapCategory = (raw: any): CategoryType => {
   const id = raw.shop_section_id
 
-  let newCategory: Category = {
+  let newCategory: CategoryType = {
     id,
     title: raw.title,
     listings: [],

@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
 import Layout from '../../components/Layout'
-import ItemPageV2 from '../../components/pages/ItemPageV2'
+import ItemPage from '../../components/pages/ItemPage'
 
 import LISTINGS from '../../data/listings.json'
 import CONFIG from '../../data/config.json'
@@ -13,8 +13,8 @@ import {
   getListingShippingInfo,
 } from '../../utils/etsy'
 import {
-  Category,
-  Listing as ListingType,
+  CategoryType,
+  ListingType,
   ShippingInfo,
 } from '../../types'
 
@@ -95,7 +95,7 @@ export default function Item({
 }: {
   listing: ListingType
   shippingInfo: ShippingInfo
-  category?: Category
+  category?: CategoryType
   similarListings: ListingType[]
 }) {
   const today = new Date()
@@ -182,7 +182,7 @@ export default function Item({
       </Head>
 
       <div>
-        <ItemPageV2
+        <ItemPage
           listing={listing}
           category={category}
           similarListings={similarListings}

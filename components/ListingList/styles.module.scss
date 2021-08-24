@@ -1,0 +1,29 @@
+@import "styles/variables";
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -12px;
+  margin-top: 12px;
+
+  @include gt-md {
+    // margin-top: 32px;
+  }
+}
+
+.item {
+  width: 100%;
+  padding: 10px;
+
+  @include gt-xs {
+    width: 50%;
+  }
+
+  @include gt-sm {
+    width: 33.33%;
+  }
+
+  @include gt-md {
+    width: 25%;
+  }
+}

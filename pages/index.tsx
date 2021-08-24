@@ -1,6 +1,4 @@
 import Head from 'next/head'
-import styles from './index.module.scss'
-
 import META from '../data/meta.json'
 
 import { getShop } from '../utils/etsy'
@@ -8,29 +6,43 @@ import { mapListing, mapCategory } from '../utils/data'
 import { getIsCategoryShown, getIsRawListingCorrect } from '../utils/helpers'
 
 import Layout from '../components/Layout'
-import Listing from '../components/Listing'
-import BaseBackgroundSection from '../components/BaseBackgroundSection'
+import Home from '../components/pages/Home'
+
+const TOP_LISTINGS = [
+  983175476, // Wisteria baby crib mobile / Floral Flower mobile
+  969814943, // Ocean Surfing Mobile / Surfer VW bus mobile / Boho nursery
+  969809095, // Adventures Baby Crib Mobile / VW Bus Mobile / Boho nursery
+  1037428102, // Sloth Nursery Decor Garland / Animal Felt Decorations
+  992823456, // Unicorn Baby Mobile / White Horse Crib
+  1033701556, // Personalised Nursery Decor Name Garland
+  1053972795, // Moth Felt Decoration / Butterfly Wall Decor
+  947720516, // Seagull Mobile / Ocean Nursery
+  992830432, // Crane baby crib mobile / Swan and Wizard mobile
+]
 
 export async function getStaticProps() {
   const shop = await getShop()
-  const listings = shop.Listings.filter(getIsRawListingCorrect)
-    .map(mapListing)
-    .filter((item) => item.isOnHome)
-    .sort((a, b) => b.order - a.order)
-  // const categories = shop.Sections.map(mapCategory)
-  //   .filter(getIsCategoryShown)
-  //   .sort((a, b) => a.order - b.order)
+
+  const listingsObject = {}
+
+  shop.Listings.filter(getIsRawListingCorrect).forEach((item) => {
+    listingsObject[item.listing_id] = item
+  })
+
+  const listings = TOP_LISTINGS.map((id) =>
+    listingsObject[id] ? mapListing(listingsObject[id]) : undefined
+  ).filter((item) => item)
 
   return {
     props: {
-      shop,
       listings,
+      // shop,
       // categories,
     },
   }
 }
 
-export default function Home({ listings }) {
+export default function HomePage({ listings }) {
   return (
     <div>
       <Layout title={META.home.title} description={META.home.description}>
@@ -41,33 +53,7 @@ export default function Home({ listings }) {
           />
         </Head>
 
-        <BaseBackgroundSection
-          title="Collections"
-          description={META.home.content.collections}
-          image="/images/categories/32651447.jpg"
-          url="/collections"
-          buttonLabel="See collections"
-        />
-
-        <BaseBackgroundSection title="Popular Items">
-          <div className={styles.content}>
-            <div className={styles.listings}>
-              {listings.map((item) => (
-                <div key={item.id} className={styles.listing}>
-                  <Listing item={item} />
-                </div>
-              ))}
-            </div>
-          </div>
-        </BaseBackgroundSection>
-
-        <BaseBackgroundSection
-          title="My story"
-          description={META.about.content.short}
-          image="/images/about.jpg"
-          url="/about"
-          buttonLabel="Read story"
-        />
+        <Home listings={listings} />
       </Layout>
     </div>
   )

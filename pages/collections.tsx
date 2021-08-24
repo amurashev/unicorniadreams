@@ -1,7 +1,5 @@
 import Head from 'next/head'
 
-import styles from './collections.module.scss'
-
 import META from '../data/meta.json'
 
 import { getShop } from '../utils/etsy'
@@ -9,7 +7,7 @@ import { mapCategory } from '../utils/data'
 import { getIsCategoryShown } from '../utils/helpers'
 
 import Layout from '../components/Layout'
-import Category from '../components/Category'
+import Collections from '../components/pages/Collections'
 
 export async function getStaticProps() {
   const shop = await getShop()
@@ -24,7 +22,7 @@ export async function getStaticProps() {
   }
 }
 
-export default function Collections({ categories }) {
+export default function CollectionsPage({ categories }) {
   return (
     <div>
       <Layout
@@ -37,15 +35,7 @@ export default function Collections({ categories }) {
             content={'/images/categories/32651447.jpg'}
           />
         </Head>
-        <div>
-          <div className={styles.categories}>
-            {categories.map((item) => (
-              <div key={item.id} className={styles.category}>
-                <Category item={item} />
-              </div>
-            ))}
-          </div>
-        </div>
+        <Collections categories={categories} />
       </Layout>
     </div>
   )

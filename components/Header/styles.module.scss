@@ -1,0 +1,63 @@
+@import "styles/variables";
+
+.header {
+  background-color: white;
+  border-bottom: 1px solid $gray1;
+  position: relative;
+}
+
+.headerInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+}
+
+// .headerLink {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+.headerLink:hover {
+  text-decoration: none;
+}
+
+.headerImage {
+  cursor: pointer; z-index: 1;
+}
+
+.brandBox {
+  position: absolute;
+  left: calc(50%);
+  right: calc(50%);
+  height: 100%;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+   text-decoration: none !important;
+}
+
+.siteName {
+  font-size: 36px;
+  font-family: "Great Vibes", cursive;
+  color: $gray9;
+  letter-spacing: 0.5px;
+  margin-top: 7px;
+}
+
+.menuList {
+  display: flex;
+  align-items: center;
+}
+
+.menuItem {
+  padding: 0 12px;
+
+  a {
+    color: $gray9;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+  }
+}

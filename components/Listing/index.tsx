@@ -1,24 +1,22 @@
-import { Listing } from '../../types'
+import Image from 'next/image'
+
+import { ListingType } from '../../types'
 
 import styles from './styles.module.scss'
 
 type Props = {
-  item: Listing
+  item: ListingType
 }
 
 export default function ListingComponent({ item }: Props) {
   return (
     <a href={item.url} className={styles.container}>
-      <div
-        // data-background-image={item.mainImage.large}
-        className={`${styles.imageBox}`}
-        style={{
-          backgroundImage: `url(${item.mainImage.large})`,
-        }}
-      >
-        <div className={styles.imageInnerBox}>
-          {/* <div className={styles.fader} /> */}
-        </div>
+      <div className={styles.imageBox}>
+        <Image
+          src={item.mainImage.large}
+          layout="fill"
+          alt={`${item.title} image`}
+        />
       </div>
 
       <div className={styles.textBox}>

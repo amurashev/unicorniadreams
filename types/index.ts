@@ -26,7 +26,7 @@ export type ShippingInfo = {
   secondaryCost: string
 }
 
-export type Listing = {
+export type ListingType = {
   id: number
   title: string
   description: string
@@ -60,7 +60,7 @@ export type Listing = {
   }
 }
 
-export type Category = {
+export type CategoryType = {
   id: CATEGORIES_ID
   isOn: boolean
   title: string
@@ -70,7 +70,7 @@ export type Category = {
   mainImage?: {
     large: string
   }
-  listings: Listing[]
+  listings: ListingType[]
   meta?: {
     h1: string
     description: string

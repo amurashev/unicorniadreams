@@ -1,7 +1,7 @@
 import CATEGORIES from '../data/categories.json'
 import LISTINGS from '../data/listings.json'
 
-import { Category } from '../types'
+import { CategoryType } from '../types'
 
 export const getIsRawListingCorrect = (item: any): boolean =>
   item.state === 'active'
@@ -11,7 +11,7 @@ export const getListingIdBySlug = (slug: string): number => {
   return Number(id)
 }
 
-export const getIsCategoryShown = (cat: Category): boolean => cat.isOn
+export const getIsCategoryShown = (cat: CategoryType): boolean => cat.isOn
 
 export const getCategoryIdBySlug = (slug: string): number => {
   const id = Object.keys(CATEGORIES).find(

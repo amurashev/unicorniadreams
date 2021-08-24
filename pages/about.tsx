@@ -5,7 +5,7 @@ import styles from './about.module.scss'
 import META from '../data/meta.json'
 import Layout from '../components/Layout'
 
-export default function About() {
+export default function AboutPage() {
   return (
     <div>
       <Layout

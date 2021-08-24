@@ -1,17 +1,14 @@
 import Head from 'next/head'
 
-import styles from './[slug].module.scss'
-
 import Layout from '../../components/Layout'
-import Listing from '../../components/Listing'
-import CategoryHeader from '../../components/CategoryHeader'
+import Catalog from '../../components/pages/Catalog'
 
 import CATEGORIES from '../../data/categories.json'
 
 import { getShopSection, getShop } from '../../utils/etsy'
 import { mapCategory } from '../../utils/data'
 import { getCategoryIdBySlug, getIsCategoryShown } from '../../utils/helpers'
-import { Category, Listing as ListingType } from '../../types'
+import { CategoryType, ListingType } from '../../types'
 
 export async function getStaticPaths() {
   const categories = Object.keys(CATEGORIES).map((key) => CATEGORIES[key].slug)
@@ -55,9 +52,9 @@ export default function Item({
   listings,
   similarCategories,
 }: {
-  category: Category
+  category: CategoryType
   listings: ListingType[]
-  similarCategories: Category[]
+  similarCategories: CategoryType[]
 }) {
   return (
     <Layout
@@ -70,31 +67,11 @@ export default function Item({
         )}
       </Head>
 
-      <CategoryHeader item={category} />
-
-      <div className={styles.content}>
-        <div className={styles.listings}>
-          {listings.map((item) => (
-            <div key={item.id} className={styles.listing}>
-              <Listing item={item} />
-            </div>
-          ))}
-        </div>
-        <div className={styles.lineBox} />
-        <div>
-          <h2>Another collections</h2>
-          <ul>
-            {similarCategories.map((item) => (
-              <li key={item.id}>
-                <a href={item.url}>{item.title}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <a href="/collections" className={styles.backLink}>
-          Back to collection
-        </a>
-      </div>
+      <Catalog
+        category={category}
+        listings={listings}
+        similarCategories={similarCategories}
+      />
     </Layout>
   )
 }

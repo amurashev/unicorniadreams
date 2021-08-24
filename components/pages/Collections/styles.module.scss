@@ -1,0 +1,6 @@
+@import "styles/variables";
+
+.content {
+  composes: content from '../../../styles/common.scss';
+  padding: 24px;
+}

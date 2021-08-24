@@ -1,0 +1,51 @@
+@import "styles/variables";
+
+.bgContent {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.siteName {
+  font-size: 80px;
+  font-family: $titleFont;
+  color: $white;
+  letter-spacing: 0.5px;
+  line-height: 1;
+  line-height: 0.5;
+  margin-top: 10px;
+}
+
+.slogan {
+  font-size: 38px;
+  color: $white;
+  margin-top: 16px;
+  font-weight: 100;
+}
+
+.arrowBox {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.arrow {
+  color: $white;
+  width: 46px;
+  height: 46px;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.content {
+  composes: content from '../../../styles/common.scss';
+  padding: 24px;
+}

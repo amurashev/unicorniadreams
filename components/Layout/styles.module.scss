@@ -1,46 +1,5 @@
 @import "styles/variables";
 
-.header {
-  background-color: white;
-  padding: 12px;
-  display: flex;
-  justify-content: center;
-  border-bottom: 1px solid $gray1;
-}
-
-.headerLink {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.headerLink:hover {
-  text-decoration: none;
-}
-
-.headerImage {
-  width: 70px;
-}
-
-.headerSite {
-  margin-left: 8px;
-}
-
-.siteName {
-  font-size: 32px;
-  font-family: "Great Vibes", cursive;
-  color: $gray10;
-  letter-spacing: 0.5px;
-  line-height: 1;
-  line-height: 0.5;
-  margin-top: 10px;
-}
-
-.slogan {
-  font-size: 15px;
-  color: $gray7;
-  margin-top: 3px;
-}
 
 .content {
   /* width: 960px;
