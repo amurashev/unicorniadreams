@@ -14,13 +14,13 @@ $mediaXL: 1200px;
 
 $spacingUnit: 16px;
 
-$spacing1: $spacingUnit * 0.25;
-$spacing2: $spacingUnit * 0.5;
-$spacing3: $spacingUnit * 0.75;
-$spacingBase1: $spacingUnit * 1; // 16
-$spacingBase15: $spacingUnit * 1.5; // 24
-$spacing6: $spacingUnit * 2;
-$spacing7: $spacingUnit * 2.5;
+$spacing25: $spacingUnit * 0.25;
+$spacing50: $spacingUnit * 0.5;
+$spacing75: $spacingUnit * 0.75;
+$spacing100: $spacingUnit * 1; // 16
+$spacing150: $spacingUnit * 1.5; // 24
+$spacing200: $spacingUnit * 2;
+$spacing250: $spacingUnit * 2.5;
 
 // media gt queries
 @mixin gt-xs {
@@ -49,6 +49,7 @@ $spacing7: $spacingUnit * 2.5;
 
 $primary: #2cafec;
 $white: #ffffff;
+$bgColor: #f9f9f9;
 
 // gray
 $gray0: #f9f9f9;

@@ -101,6 +101,6 @@
 }
 
 .content {
-  composes: content from '../../../styles/common.scss';
+  composes: contentWithPadding from '../../../styles/common.scss';
   padding: 24px;
 }

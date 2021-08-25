@@ -1,9 +1,8 @@
 import Head from 'next/head'
 
-import styles from './about.module.scss'
-
 import META from '../data/meta.json'
 import Layout from '../components/Layout'
+import About from '../components/pages/About'
 
 export default function AboutPage() {
   return (
@@ -19,11 +18,7 @@ export default function AboutPage() {
           />
         </Head>
 
-        <div className={styles.content}>
-          <h1>My story</h1>
-
-          <p>{META.about.content.full}</p>
-        </div>
+        <About />
       </Layout>
     </div>
   )

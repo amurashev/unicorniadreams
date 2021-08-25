@@ -42,42 +42,48 @@ export default function Home({ listings }: { listings: ListingType[] }) {
       </BackgroundBox>
 
       <div className={styles.content} id="firstContent">
-        <TextAndBackground
-          alt={`todo`}
-          image={'/images/categories/32651447.jpg'}
-          title="My story"
-          linkLabel="Read my story"
-          linkHref={PAGES.about.getUrl()}
-          description={
-            <>
-              <p>Welcome to Unicornia!</p>
-              <p>My name is Alena! All my life I lived in a
-              huge noisy metropolis, but my soul always dreamed of the sea. And
-              then my family and I decided to move to the small sunny town of
-              Anapa. This city is located on the shores of the Black Sea and it
-              is the best place for creativity!</p>
-            </>
-          }
-        >
-          1232321
-        </TextAndBackground>
+        <div className={styles.section}>
+          <TextAndBackground
+            alt="Unicornia Dreams"
+            image={'/images/categories/32651447.jpg'}
+            title="My story"
+            linkLabel="Read my story"
+            linkHref={PAGES.about.getUrl()}
+            description={
+              <>
+                <p>Welcome to Unicornia!</p>
+                <p>
+                  My name is Alena! All my life I lived in a huge noisy
+                  metropolis, but my soul always dreamed of the sea. And then my
+                  family and I decided to move to the small sunny town of Anapa.
+                  This city is located on the shores of the Black Sea and it is
+                  the best place for creativity!
+                </p>
+              </>
+            }
+          />
+        </div>
 
-        <section>
-          <h2>Shop Our Favourites</h2>
-          <ListingList listings={listings} />
-        </section>
+        <div className={styles.listing}>
+          <div className={styles.section}>
+            <section>
+              <h2>Shop Our Favourites</h2>
+              <ListingList listings={listings} />
+            </section>
+          </div>
+        </div>
 
-        <TextAndBackground
-          isRight
-          alt={`todo`}
-          image={'/images/about.jpg'}
-          title="Collections"
-          linkLabel="See collection"
-          linkHref={PAGES.collections.getUrl()}
-          description="Long before a cookbook is cracked—even before farmers sow their fields—plant breeders write recipes for our ingredients. The problem? Too often, they are asked to select for yield, shelf life and uniformity at the expense of good food, nutrition and our environment. What if, instead, we started with what’s delicious?"
-        >
-          1232321
-        </TextAndBackground>
+        <div className={styles.section}>
+          <TextAndBackground
+            isRight
+            alt="Unicornia dreams collection"
+            image={'/images/about.jpg'}
+            title="Collections"
+            linkLabel="See collection"
+            linkHref={PAGES.collections.getUrl()}
+            description="Long before a cookbook is cracked—even before farmers sow their fields—plant breeders write recipes for our ingredients. The problem? Too often, they are asked to select for yield, shelf life and uniformity at the expense of good food, nutrition and our environment. What if, instead, we started with what’s delicious?"
+          />
+        </div>
       </div>
     </div>
   )

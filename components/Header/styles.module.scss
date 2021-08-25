@@ -28,14 +28,18 @@
 }
 
 .brandBox {
+  display: none;
   position: absolute;
   left: calc(50%);
   right: calc(50%);
   height: 100%;
-  display: flex;
-    justify-content: center;
-    align-items: center;
-   text-decoration: none !important;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none !important;
+
+  @include gt-md {
+    display: flex;
+  }
 }
 
 .siteName {
@@ -52,7 +56,11 @@
 }
 
 .menuItem {
-  padding: 0 12px;
+  padding: 0 $spacing50;
+
+  @include gt-sm {
+    padding: 0 $spacing75;
+  }
 
   a {
     color: $gray9;

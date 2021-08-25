@@ -3,20 +3,31 @@
 .box {
   position: relative;
   display: flex;
-  flex-direction: row;
-  padding: 60px 0;
+  flex-direction: column;
+
+  @include gt-sm {
+    padding: 60px 0;
+    flex-direction: row;
+  }
 }
 
 .boxIsRight {
   composes: box;
-  flex-direction: row-reverse;
+
+  @include gt-sm {
+    flex-direction: row-reverse;
+  }
 }
 
 .imageBox {
-  width: 50%;
+  width: 100%;
   padding: 0;
   z-index: 2;
-  padding-right: 24px;
+
+  @include gt-sm {
+    width: 50%;
+    padding-right: 24px;
+  }
 }
 
 .imageBoxIsRight {
@@ -49,26 +60,34 @@
 }
 
 .textBox {
-  width: 50%;
   padding: 0 6%;
   z-index: 1;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @include gt-sm {
+    width: 50%;
+  }
 }
 
 .titleBox {
-  margin-top: -24px;
   display: flex;
   flex-direction: column;
+
+  @include gt-sm {
+    margin-top: -24px;
+  }
 }
 
 .titleBoxIsRight {
   composes: titleBox;
 
-  align-items: flex-end;
-  text-align: right;
+  @include gt-sm {
+    align-items: flex-end;
+    text-align: right;
+  }
 }
 
 
@@ -85,6 +104,11 @@
     right: 100%;
     margin-right: 16px;
     top: 16px;
+    display: none;
+
+    @include gt-sm {
+      display: block;
+    }
   }
 }
 

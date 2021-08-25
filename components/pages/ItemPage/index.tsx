@@ -2,6 +2,7 @@ import { useState } from 'react'
 import SwipeableViews from 'react-swipeable-views'
 import Image from 'next/image'
 
+import CONFIG from '../../../data/config.json'
 import ListingList from '../../../components/ListingList'
 import {
   IconChevronLeft,
@@ -23,9 +24,9 @@ const Section = ({
 }: {
   title: string
   isShown?: boolean
-  children: React.ReactChild
-  topContent?: React.ReactChild
-  icon?: React.ReactChild
+  children: React.ReactNode
+  topContent?: React.ReactNode
+  icon?: React.ReactNode
 }) => {
   const [_isShown, toggle] = useState(isShown)
 
@@ -55,7 +56,7 @@ const Section = ({
   )
 }
 
-export default function ItemPageV1({
+export default function ItemPage({
   listing,
   category,
   h1,
@@ -72,8 +73,6 @@ export default function ItemPageV1({
   dateFrom: string
   dateTo: string
 }) {
-  const mainImage = listing.images[0].full
-
   return (
     <div className={styles.container}>
       <div className={styles.imagesMobile}>
@@ -172,9 +171,10 @@ export default function ItemPageV1({
               icon={<IconShipping />}
               isShown
             >
-              Delivery usually takes 10 to 20 business days, but keep in mind
-              that delivery time may be extended for some countries due to
-              customs (especially holidays time). I’ll give you tracking
+              Delivery usually takes {CONFIG.shippingDetails.transitTime.min} to{' '}
+              {CONFIG.shippingDetails.transitTime.max} business days, but keep
+              in mind that delivery time may be extended for some countries due
+              to customs (especially holidays time). I’ll give you tracking
               information once your package is shipped, so you can track your
               package.
             </Section>
@@ -217,21 +217,19 @@ export default function ItemPageV1({
         </div>
       </div>
 
-      <div className={styles.bottomContent}>
-        {similarListings && similarListings.length > 0 && (
-          <>
-            <div className={styles.highlightsBox}>
-              <div className={styles.bottomContentHeaderBox}>
-                <h2 className={styles.bottomContentHeader}>
-                  You might also like
-                </h2>
-                <a href={category.url}>All {category.title}</a>
-              </div>
-              <ListingList listings={similarListings} />
+      {similarListings && similarListings.length > 0 && (
+        <div className={styles.bottomContent}>
+          <div className={styles.bottomContentInner}>
+            <div className={styles.bottomContentHeaderBox}>
+              <h2 className={styles.bottomContentHeader}>
+                You might also like
+              </h2>
+              <a href={category.url}>All {category.title}</a>
             </div>
-          </>
-        )}
-      </div>
+            <ListingList listings={similarListings} />
+          </div>
+        </div>
+      )}
     </div>
   )
 }

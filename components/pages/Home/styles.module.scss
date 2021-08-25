@@ -9,20 +9,28 @@
 }
 
 .siteName {
-  font-size: 80px;
+  font-size: 40px;
   font-family: $titleFont;
   color: $white;
   letter-spacing: 0.5px;
   line-height: 1;
   line-height: 0.5;
   margin-top: 10px;
+
+  @include gt-sm {
+    font-size: 80px;
+  }
 }
 
 .slogan {
-  font-size: 38px;
+  font-size: 24px;
   color: $white;
   margin-top: 16px;
   font-weight: 100;
+
+  @include gt-sm {
+    font-size: 38px;
+  }
 }
 
 .arrowBox {
@@ -33,6 +41,11 @@
   display: flex;
   justify-content: center;
   cursor: pointer;
+  display: none;
+
+  @include gt-sm {
+    display: block;
+  }
 }
 
 .arrow {
@@ -45,7 +58,11 @@
   }
 }
 
-.content {
-  composes: content from '../../../styles/common.scss';
-  padding: 24px;
+.listing {
+  background-color: $bgColor;
+  padding-top: 8px;
+}
+
+.section {
+  composes: contentWithPadding from '../../../styles/common.scss';
 }

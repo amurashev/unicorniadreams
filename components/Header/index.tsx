@@ -43,13 +43,13 @@ export default function Header() {
               </Link>
             </li>
             <li className={styles.menuItem}>
-              <Link href={PAGES.about.getUrl()}>
-                <a>About</a>
+              <Link href={PAGES.collections.getUrl()}>
+                <a>Collections</a>
               </Link>
             </li>
             <li className={styles.menuItem}>
-              <Link href={PAGES.collections.getUrl()}>
-                <a>Collections</a>
+              <Link href={PAGES.about.getUrl()}>
+                <a>About</a>
               </Link>
             </li>
           </ul>

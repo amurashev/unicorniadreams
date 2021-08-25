@@ -52,12 +52,16 @@ h1, h2, h3 {
   padding: 0;
   font-weight: 300;
   color: $gray9;
-  text-transform: uppercase;    letter-spacing: 2px;
-
+  text-transform: uppercase;    
+  letter-spacing: 2px;
 }
 
 h1 {
-  font-size: 24px;
+  font-size: 21px;
+
+  @include gt-sm {
+    font-size: 24px;
+  }
 }
 
 h2 {

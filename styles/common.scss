@@ -6,6 +6,15 @@
   margin: 0 auto;
 }
 
+.contentWithPadding {
+  composes: content;
+  padding: $spacing100;
+
+  @include gt-sm {
+    padding: $spacing150;
+  }
+}
+
 .lineBox {
   margin: 20px 0;
   width: 100%;
