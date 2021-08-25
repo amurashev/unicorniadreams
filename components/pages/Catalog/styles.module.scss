@@ -8,6 +8,7 @@
   position: relative;
   background-color: #f9f9f9;
   width: 100%;
+  height: 40vh;
 
   @include gt-sm {
     padding: 32px;
@@ -15,7 +16,6 @@
   }
 
   img {
-    display: none !important;
     position: absolute;
     top: 0;
     left: 0;
@@ -26,16 +26,16 @@
     object-fit: cover;
     object-position: center;
 
-    @include gt-sm {
-      display: block !important;
-    }
+    // @include gt-sm {
+    //   display: block !important;
+    // }
   }
 }
 
 .fader {
   position: absolute;
   inset: 0px;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.3);
   display: none;
 }
 
@@ -49,20 +49,20 @@
 .titleBox {
   width: 100%;
   padding: 24px;
+  background-color: rgb(0 0 0 / 40%);
+  position: absolute;
+  bottom: 0;
+  right: 0;
 
   @include gt-sm {
     width: 400px;
-    background-color: rgb(0 0 0 / 40%);
-    position: absolute;
-    bottom: 0;
-    right: 0;
   }
 }
 
 .title {
   font-size: 24px;
   font-weight: 300;
-  color: $gray9;
+  color: #ffffff;
   // font-weight: bold;
   // letter-spacing: 5px;
   /* text-transform: uppercase; */
@@ -85,7 +85,7 @@
 .descriptionShort {
   font-size: 15px;
   margin-top: 8px;
-  color: $gray7;
+  color: #e0e0e0;
 
   @include gt-sm {
     color: #e0e0e0;

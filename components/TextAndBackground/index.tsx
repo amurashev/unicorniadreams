@@ -7,7 +7,7 @@ import styles from './styles.module.scss'
 type Props = {
   alt: string
   image: string
-  title: string
+  title?: string
   isRight?: boolean
   linkLabel?: string
   linkHref?: string
@@ -28,7 +28,15 @@ export default function TextAndBackground({
     <section className={isRight ? styles.boxIsRight : styles.box}>
       <div className={isRight ? styles.imageBoxIsRight : styles.imageBox}>
         <div className={styles.imageInnerBox}>
-          <Image src={image} layout="fill" alt={alt} />
+          {linkLabel ? (
+            <Link href={linkHref}>
+              <a>
+                <Image src={image} layout="fill" alt={alt} />
+              </a>
+            </Link>
+          ) : (
+            <Image src={image} layout="fill" alt={alt} />
+          )}
         </div>
       </div>
       <div className={styles.textBox}>

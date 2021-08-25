@@ -1,0 +1,23 @@
+@import "styles/variables";
+
+.content {
+  composes: contentWithPadding from '../../../styles/common.scss';
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: calc(100vh - 70px);
+}
+
+.number {
+  font-size: 64px;
+  color: $gray9;
+}
+
+.quote {
+  font-style: italic;
+  margin: $spacing100 0;
+  font-size: 18px;
+  color: $gray5;
+}

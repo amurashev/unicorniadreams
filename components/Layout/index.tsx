@@ -14,6 +14,7 @@ type Props = {
   title: string
   description: string
   keywords?: string
+  isLight?: boolean
 }
 
 export default function Layout({
@@ -21,6 +22,7 @@ export default function Layout({
   title,
   description,
   keywords,
+  isLight,
 }: Props) {
   const { asPath } = useRouter()
   const context = {
@@ -74,7 +76,7 @@ export default function Layout({
         />
       </Head>
 
-      <Header />
+      <Header isLight={isLight} />
      
       <main className={styles.content}>{children}</main>
 

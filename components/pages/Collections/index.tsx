@@ -13,20 +13,22 @@ export default function Collections({
   return (
     <div className={styles.content}>
       {categories.map((item, key) => (
-        <TextAndBackground
-          key={key}
-          isRight={key % 2 === 1}
-          alt={`todo`}
-          image={item.mainImage.large}
-          title={item.title}
-          linkLabel="See collection"
-          linkHref={PAGES.collection.getUrl({
-            slug: item.slug,
-          })}
-          description={
-              <p>{item.meta.description}</p>
-          }
-        />
+        <div className={key % 2 === 1 ? styles.boxBg : null}>
+          <div className={styles.section}>
+            <TextAndBackground
+              key={key}
+              isRight={key % 2 === 1}
+              alt={`todo`}
+              image={item.mainImage.large}
+              title={item.title}
+              linkLabel="See collection"
+              linkHref={PAGES.collection.getUrl({
+                slug: item.slug,
+              })}
+              description={<p>{item.meta.description}</p>}
+            />
+          </div>
+        </div>
       ))}
     </div>
   )

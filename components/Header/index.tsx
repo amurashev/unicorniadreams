@@ -7,12 +7,12 @@ import CONFIG from '../../data/config.json'
 import PAGES from '../../data/pages'
 
 type Props = {
-  isTransparent?: boolean
+  isLight?: boolean
 }
 
-export default function Header() {
+export default function Header({ isLight }: Props) {
   return (
-    <header className={styles.header}>
+    <header className={!isLight ? styles.header : styles.headerIsLight}>
       <div className={styles.headerInner}>
         <Link href={PAGES.index.getUrl()}>
           <a className={styles.headerImage}>

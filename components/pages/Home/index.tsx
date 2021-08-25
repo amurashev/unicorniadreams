@@ -1,8 +1,3 @@
-import { useState } from 'react'
-import SwipeableViews from 'react-swipeable-views'
-import Image from 'next/image'
-
-import { CATEGORIES_ID } from '../../../constants'
 import CONFIG from '../../../data/config.json'
 import PAGES from '../../../data/pages'
 import { ListingType } from '../../../types'
@@ -17,11 +12,7 @@ import styles from './styles.module.scss'
 export default function Home({ listings }: { listings: ListingType[] }) {
   return (
     <div className={styles.box}>
-      <BackgroundBox
-        alt={`todo`}
-        image={'/images/categories/32651447.jpg'}
-        hasFader
-      >
+      <BackgroundBox alt={`todo`} image={'/images/main-bg.jpg'} hasFader>
         <div className={styles.bgContent}>
           <div className={styles.headerSite}>
             <div className={styles.siteName}>{CONFIG.brandName}</div>
@@ -51,7 +42,6 @@ export default function Home({ listings }: { listings: ListingType[] }) {
             linkHref={PAGES.about.getUrl()}
             description={
               <>
-                <p>Welcome to Unicornia!</p>
                 <p>
                   My name is Alena! All my life I lived in a huge noisy
                   metropolis, but my soul always dreamed of the sea. And then my
@@ -81,7 +71,15 @@ export default function Home({ listings }: { listings: ListingType[] }) {
             title="Collections"
             linkLabel="See collection"
             linkHref={PAGES.collections.getUrl()}
-            description="Long before a cookbook is cracked—even before farmers sow their fields—plant breeders write recipes for our ingredients. The problem? Too often, they are asked to select for yield, shelf life and uniformity at the expense of good food, nutrition and our environment. What if, instead, we started with what’s delicious?"
+            description={
+              <>
+                <p>
+                  Here is our collection. I create plush sea animals and baby
+                  mobiles. And I hope our toys and decor will delight you and
+                  your baby
+                </p>
+              </>
+            }
           />
         </div>
       </div>

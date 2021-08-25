@@ -8,7 +8,7 @@
 
 .contentWithPadding {
   composes: content;
-  padding: $spacing100;
+  padding: $spacing150;
 
   @include gt-sm {
     padding: $spacing150;

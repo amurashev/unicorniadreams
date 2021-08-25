@@ -11,13 +11,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 8px;
+  height: 100%;
 }
-
-// .headerLink {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// }
 
 .headerLink:hover {
   text-decoration: none;
@@ -50,9 +45,14 @@
   margin-top: 7px;
 }
 
+.menuBox {
+  flex-grow: 1;
+}
+
 .menuList {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
 }
 
 .menuItem {
@@ -67,5 +67,32 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 12px;
+  }
+}
+
+
+
+
+.headerIsLight {
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  z-index: 2;
+
+  .headerImage {
+    display: none;
+  }
+
+  .siteName {
+    color: $white;
+  }
+
+  .menuItem {
+    a {
+      color: $white;
+    }
   }
 }

@@ -1,5 +1,18 @@
 @import "styles/variables";
 
 .content {
+  text-align: center;
+  padding-top: $spacing200;
+}
+
+.boxBg {
+  background-color: $bgColor;
+}
+
+.section {
   composes: contentWithPadding from '../../../styles/common.scss';
+
+  p + p {
+    margin-top: $spacing75;
+  }
 }

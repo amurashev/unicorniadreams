@@ -45,7 +45,11 @@ export async function getStaticProps() {
 export default function HomePage({ listings }) {
   return (
     <div>
-      <Layout title={META.home.title} description={META.home.description}>
+      <Layout
+        title={META.home.title}
+        description={META.home.description}
+        isLight
+      >
         <Head>
           <meta
             property="og:image"

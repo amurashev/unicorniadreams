@@ -1,13 +1,19 @@
-import Link from 'next/link'
+import Head from 'next/head'
+
+import META from '../data/meta.json'
+import Layout from '../components/Layout'
+import Page404 from '../components/pages/404'
+
 
 export default function Custom404() {
   return (
     <div>
-      <h1>404 - Page Not Found</h1>
-
-      <Link href="/">
-        <a>Back to home</a>
-      </Link>
+      <Layout
+        title="Page not found"
+        description=""
+      >
+        <Page404 />
+      </Layout>
     </div>
   )
 }

@@ -1,5 +1,17 @@
 @import "styles/variables";
 
 .content {
+  
+}
+
+.boxBg {
+  background-color: $bgColor;
+}
+
+.section {
   composes: contentWithPadding from '../../../styles/common.scss';
+
+  p + p {
+    margin-top: $spacing75;
+  }
 }
