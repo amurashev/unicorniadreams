@@ -1,10 +1,11 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import styles from './styles.module.scss'
 
 import CONFIG from '../../data/config.json'
 import PAGES from '../../data/pages'
+
+import styles from './styles.module.scss'
 
 type Props = {
   isLight?: boolean
@@ -17,9 +18,7 @@ export default function Header({ isLight }: Props) {
         <Link href={PAGES.index.getUrl()}>
           <a className={styles.headerImage}>
             <Image
-              // className=""
               src="/images/unicornia_logo_70.jpg"
-              // srcSet="/images/unicornia_logo_140.jpg 2x, /images/unicornia_logo_210.jpg 3x"
               alt={`${CONFIG.brandName} logo`}
               width={48}
               height={48}

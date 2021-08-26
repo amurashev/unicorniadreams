@@ -36,7 +36,7 @@ export default function Home({ listings }: { listings: ListingType[] }) {
         <div className={styles.section}>
           <TextAndBackground
             alt="Unicornia Dreams"
-            image={'/images/categories/32651447.jpg'}
+            image={'/images/about_2.jpg'}
             title="My story"
             linkLabel="Read my story"
             linkHref={PAGES.about.getUrl()}
@@ -58,7 +58,9 @@ export default function Home({ listings }: { listings: ListingType[] }) {
           <div className={styles.section}>
             <section>
               <h2>Shop Our Favourites</h2>
-              <ListingList listings={listings} />
+              <div className={styles.listingsBox}>
+                <ListingList listings={listings} />
+              </div>
             </section>
           </div>
         </div>

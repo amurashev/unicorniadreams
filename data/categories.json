@@ -42,5 +42,16 @@
       "description": "Christmas ornaments description",
       "keywords": ""
     }
+  },
+  "123": {
+    "isOn": false,
+    "slug": "halloween-decor-and-accessories",
+    "order": 15,
+    "title": "Halloween decor and accessories",
+    "meta": {
+      "title": "Halloween decor and accessories",
+      "description": "Christmas ornaments description",
+      "keywords": ""
+    }
   }
 }

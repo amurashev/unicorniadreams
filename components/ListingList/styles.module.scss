@@ -3,8 +3,8 @@
 .list {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -12px;
-  margin-top: 12px;
+  margin: 0 -$spacing50;
+  margin-top: -$spacing50;
 
   @include gt-md {
     // margin-top: 32px;
@@ -13,7 +13,7 @@
 
 .item {
   width: 100%;
-  padding: 10px;
+  padding: $spacing50;
 
   @include gt-xs {
     width: 50%;
