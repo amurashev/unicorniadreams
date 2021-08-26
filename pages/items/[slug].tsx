@@ -12,14 +12,12 @@ import {
   getShopSection,
   getListingShippingInfo,
 } from '../../utils/etsy'
-import {
-  CategoryType,
-  ListingType,
-  ShippingInfo,
-} from '../../types'
+import { CategoryType, ListingType, ShippingInfo } from '../../types'
 
 export async function getStaticPaths() {
-  const listings = Object.keys(LISTINGS).map((key) => LISTINGS[key].slug)
+  const listings = Object.keys(LISTINGS)
+    .filter((key) => LISTINGS[key].isOn)
+    .map((key) => LISTINGS[key].slug)
 
   const paths = listings.map((item) => ({
     params: {

@@ -11,9 +11,9 @@ import { getCategoryIdBySlug, getIsCategoryShown } from '../../utils/helpers'
 import { CategoryType, ListingType } from '../../types'
 
 export async function getStaticPaths() {
-  const categories = Object.keys(CATEGORIES).map(
-    (key) => CATEGORIES[key].slug && CATEGORIES[key].isOn
-  )
+  const categories = Object.keys(CATEGORIES)
+    .filter((key) => CATEGORIES[key].isOn)
+    .map((key) => CATEGORIES[key].slug)
 
   const paths = categories.map((item) => ({
     params: {

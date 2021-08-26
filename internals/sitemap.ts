@@ -26,12 +26,16 @@ let commonPages = [
 
 commonPages = commonPages
   .concat(
-    categories.map((item) => ({
-      url: `/collections/${item}`,
-    }))
+    categories
+      .filter((item) => item.isOn)
+      .map((item) => ({
+        url: `/collections/${item}`,
+      }))
   )
   .concat(
-    listings.map((item) => ({
+    listings
+    .filter((item) => item.isOn)
+    .map((item) => ({
       url: `/items/${item}`,
     }))
   )
