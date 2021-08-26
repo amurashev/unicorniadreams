@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import META from '../data/meta.json'
 
-import { getShop } from '../utils/etsy'
+import { getShop, getShopListings } from '../utils/etsy'
 import { mapListing, mapCategory } from '../utils/data'
 import { getIsCategoryShown, getIsRawListingCorrect } from '../utils/helpers'
 
@@ -18,26 +18,27 @@ const TOP_LISTINGS = [
   1053972795, // Moth Felt Decoration / Butterfly Wall Decor
   947720516, // Seagull Mobile / Ocean Nursery
   992830432, // Crane baby crib mobile / Swan and Wizard mobile
+  1060388164, // Halloween Pumpkin Brooch
 ]
 
 export async function getStaticProps() {
   const shop = await getShop()
+  const listings = await getShopListings()
 
   const listingsObject = {}
 
-  shop.Listings.filter(getIsRawListingCorrect).forEach((item) => {
+  listings.filter(getIsRawListingCorrect).forEach((item) => {
     listingsObject[item.listing_id] = item
   })
 
-  const listings = TOP_LISTINGS.map((id) =>
+  const topListings = TOP_LISTINGS.map((id) =>
     listingsObject[id] ? mapListing(listingsObject[id]) : undefined
   ).filter((item) => item)
 
   return {
     props: {
-      listings,
-      // shop,
-      // categories,
+      listings: topListings,
+      shop,
     },
   }
 }

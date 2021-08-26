@@ -36,7 +36,7 @@ export type ListingType = {
   tags: string[]
   views: number
   numFavorers: number
-  categoryId: CATEGORIES_ID
+  categoryId?: CATEGORIES_ID
   mainImage?: Image
   shippingInfo?: {
     isFree: boolean
@@ -50,7 +50,6 @@ export type ListingType = {
   }[]
   url?: string
   slug?: string
-  isOnHome?: boolean
   order?: number
   meta?: {
     h1: string

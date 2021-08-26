@@ -10,7 +10,7 @@ type Props = {
 
 export default function ListingComponent({ item }: Props) {
   return (
-    <a href={item.url} className={styles.container}>
+    <a href={item.url} className={styles.container} data-id={item.id}>
       <div className={styles.imageBox}>
         <Image
           src={item.mainImage.large}

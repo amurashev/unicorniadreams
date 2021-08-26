@@ -1,6 +1,10 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 import ListingList from '../../../components/ListingList'
+import { IconChevronLeft } from '../../../components/Icons'
+import { CATEGORIES_ID } from '../../../constants'
+import pages from '../../../data/pages'
 import { CategoryType, ListingType } from '../../../types'
 
 import styles from './styles.module.scss'
@@ -14,6 +18,8 @@ export default function Catalog({
   listings: ListingType[]
   similarCategories: CategoryType[]
 }) {
+  const isHalloWeen = category.id === CATEGORIES_ID.HALLOWEEN
+
   return (
     <div className={styles.container}>
       <div className={styles.bgBox}>
@@ -25,7 +31,11 @@ export default function Catalog({
         <div className={styles.fader}></div>
         <div className={styles.imageInnerBox}>
           <div className={styles.titleBox}>
-            <h1 className={styles.title}>{category.title}</h1>
+            <h1
+              className={isHalloWeen ? styles.titleIsHalloWeen : styles.title}
+            >
+              {category.title}
+            </h1>
 
             <p className={styles.descriptionShort}>
               {category.meta.description}
@@ -35,6 +45,47 @@ export default function Catalog({
       </div>
       <div className={styles.content}>
         <ListingList listings={listings} />
+      </div>
+
+      <div className={styles.another}>
+        <div className={styles.content}>
+          <h2>Browse another collection</h2>
+          <div className={styles.categories}>
+            {similarCategories.slice(0, 2).map((item, key) => {
+              return (
+                <Link
+                  href={pages.collection.getUrl({
+                    slug: item.slug,
+                  })}
+                >
+                  <a
+                    key={item.id}
+                    className={
+                      key === 1 ? styles.categoryIsRight : styles.category
+                    }
+                  >
+                    <div className={styles.categoryInner}>
+                      <div className={styles.arrow}>
+                        <IconChevronLeft />
+                      </div>
+                      <div className={styles.imageBox}>
+                        <Image
+                          src={item.mainImage.large}
+                          layout="fill"
+                          alt={`${item.title} category`}
+                        />
+                      </div>
+
+                      <div className={styles.textBox}>
+                        <div className={styles.categoryTitle}>{item.title}</div>
+                      </div>
+                    </div>
+                  </a>
+                </Link>
+              )
+            })}
+          </div>
+        </div>
       </div>
     </div>
   )
