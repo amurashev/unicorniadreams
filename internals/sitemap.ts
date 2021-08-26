@@ -7,8 +7,12 @@ const LISTINGS = require('../data/listings.json')
 const CATEGORIES = require('../data/categories.json')
 const CONFIG = require('../data/config.json')
 
-const listings = Object.keys(LISTINGS).map((key) => LISTINGS[key].slug)
-const categories = Object.keys(CATEGORIES).map((key) => CATEGORIES[key].slug)
+const listings = Object.keys(LISTINGS)
+  .filter((key) => LISTINGS[key].isOn)
+  .map((key) => LISTINGS[key].slug)
+const categories = Object.keys(CATEGORIES)
+  .filter((key) => CATEGORIES[key].isOn)
+  .map((key) => CATEGORIES[key].slug)
 
 const outputFilePath = './public/sitemap.xml'
 
@@ -26,16 +30,12 @@ let commonPages = [
 
 commonPages = commonPages
   .concat(
-    categories
-      .filter((item) => item.isOn)
-      .map((item) => ({
-        url: `/collections/${item}`,
-      }))
+    categories.map((item) => ({
+      url: `/collections/${item}`,
+    }))
   )
   .concat(
-    listings
-    .filter((item) => item.isOn)
-    .map((item) => ({
+    listings.map((item) => ({
       url: `/items/${item}`,
     }))
   )
