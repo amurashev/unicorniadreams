@@ -42,7 +42,7 @@ export const getShopSection = async (sectionId: number) => {
 }
 
 
-export const getShopListings = async () => {
+export const getShopActiveListings = async () => {
   const data = {
     includes: ['MainImage'].join(','),
     limit: 75,
@@ -50,6 +50,20 @@ export const getShopListings = async () => {
 
   const response = await EtsyRequest(
     `/shops/${SHOP_ID}/listings/active`,
+    data
+  )
+
+  return response.results
+}
+
+export const getShopFeaturedListings = async () => {
+  const data = {
+    includes: ['MainImage'].join(','),
+    limit: 75,
+  }
+
+  const response = await EtsyRequest(
+    `/shops/${SHOP_ID}/listings/featured`,
     data
   )
 
@@ -65,6 +79,26 @@ export const getListing = async (listingId: number) => {
   const response = await EtsyRequest(`/listings/${listingId}`, data)
 
   return response.results[0]
+}
+
+export const getListingAttributes = async (listingId: number) => {
+  const data = {
+    // includes: ['MainImage', 'Images'].join(','),
+  }
+
+  const response = await EtsyRequest(`/listings/${listingId}/attributes`, data)
+
+  return response.results
+}
+
+export const getListingInventory = async (listingId: number) => {
+  const data = {
+    // includes: ['MainImage', 'Images'].join(','),
+  }
+
+  const response = await EtsyRequest(`/listings/${listingId}/inventory`, data)
+
+  return response.results
 }
 
 

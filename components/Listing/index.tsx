@@ -1,6 +1,7 @@
 import Image from 'next/image'
 
 import { ListingType } from '../../types'
+import { IconBest } from '../Icons'
 
 import styles from './styles.module.scss'
 
@@ -12,6 +13,12 @@ export default function ListingComponent({ item }: Props) {
   return (
     <a href={item.url} className={styles.container} data-id={item.id}>
       <div className={styles.imageBox}>
+        {item.isBest && (
+          <div className={styles.best}>
+            <IconBest />
+            Best Seller
+            </div>
+        )}
         <Image
           src={item.mainImage.large}
           layout="fill"

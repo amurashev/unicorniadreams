@@ -32,6 +32,7 @@ export type ListingType = {
   description: string
   price: string
   isOn: boolean
+  isBest: boolean
   etsyUrl: string
   tags: string[]
   views: number

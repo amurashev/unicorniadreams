@@ -32,11 +32,10 @@ export async function getStaticProps({ params }) {
   const section = await getShopSection(categoryId)
   const category = mapCategory(section)
 
-  const listings = category.listings
+  const listings = category.listings.sort((a, b) => +b.isBest - +a.isBest)
 
   const shop = await getShop()
   let similarCategories = shop.Sections.map(mapCategory)
-    // .filter((item) => item.id !== categoryId)
     .filter(getIsCategoryShown)
     .sort((a, b) => a.order - b.order)
 
@@ -47,10 +46,19 @@ export async function getStaticProps({ params }) {
     }
   })
 
-  const prevIndex = indexOfCurrentElement === 0 ? similarCategories.length - 1 : indexOfCurrentElement - 1
-  const nextIndex = indexOfCurrentElement === similarCategories.length - 1 ? 0 : indexOfCurrentElement + 1
+  const prevIndex =
+    indexOfCurrentElement === 0
+      ? similarCategories.length - 1
+      : indexOfCurrentElement - 1
+  const nextIndex =
+    indexOfCurrentElement === similarCategories.length - 1
+      ? 0
+      : indexOfCurrentElement + 1
 
-  similarCategories = [similarCategories[prevIndex], similarCategories[nextIndex]]
+  similarCategories = [
+    similarCategories[prevIndex],
+    similarCategories[nextIndex],
+  ]
 
   return {
     props: {

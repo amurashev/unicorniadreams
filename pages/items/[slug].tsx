@@ -38,6 +38,7 @@ async function sleep(ms) {
 export async function getStaticProps(context) {
   const { params } = context
   const id = getListingIdBySlug(params.slug)
+
   const data = await getListing(id)
   const listing = mapListing(data)
   await sleep(2000)
