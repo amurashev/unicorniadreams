@@ -38,13 +38,17 @@ export async function getStaticProps({ params }) {
 
     if (Number(b.isBest) > Number(a.isBest)) {
       bs +=100
-    } else {
+    }
+
+    if (Number(b.isBest) < Number(a.isBest)) {
       as +=100
     }
 
-    if (Number(b.numFavorers) > Number(a.numFavorers)) {
+    if (b.numFavorers > a.numFavorers) {
       bs +=10
-    } else {
+    }
+
+    if (b.numFavorers < a.numFavorers) {
       as +=10
     }
 
