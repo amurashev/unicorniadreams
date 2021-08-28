@@ -32,7 +32,24 @@ export async function getStaticProps({ params }) {
   const section = await getShopSection(categoryId)
   const category = mapCategory(section)
 
-  const listings = category.listings.sort((a, b) => +b.isBest - +a.isBest)
+  const listings = category.listings.sort((a, b) => {
+    let as = 0
+    let bs = 0
+
+    if (Number(b.isBest) > Number(a.isBest)) {
+      bs +=100
+    } else {
+      as +=100
+    }
+
+    if (Number(b.numFavorers) > Number(a.numFavorers)) {
+      bs +=10
+    } else {
+      as +=10
+    }
+
+    return bs - as
+  })
 
   const shop = await getShop()
   let similarCategories = shop.Sections.map(mapCategory)

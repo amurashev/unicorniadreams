@@ -54,6 +54,7 @@ export default function Catalog({
             {similarCategories.slice(0, 2).map((item, key) => {
               return (
                 <Link
+                  key={item.id}
                   href={pages.collection.getUrl({
                     slug: item.slug,
                   })}
