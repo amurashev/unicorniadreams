@@ -35,19 +35,17 @@ export default function Home({ listings }: { listings: ListingType[] }) {
       <div className={styles.content} id="firstContent">
         <div className={styles.section}>
           <TextAndBackground
-            alt="Unicornia Dreams"
-            image={'/images/about_2.jpg'}
-            title="My story"
-            linkLabel="Read my story"
-            linkHref={PAGES.about.getUrl()}
+            alt="Unicornia dreams collection"
+            image={'/images/about.jpg'}
+            title="Collections"
+            linkLabel="See collection"
+            linkHref={PAGES.collections.getUrl()}
             description={
               <>
                 <p>
-                  My name is Alena! All my life I lived in a huge noisy
-                  metropolis, but my soul always dreamed of the sea. And then my
-                  family and I decided to move to the small sunny town of Anapa.
-                  This city is located on the shores of the Black Sea and it is
-                  the best place for creativity!
+                  Here is our collection. I create plush sea animals and baby
+                  mobiles. And I hope our toys and decor will delight you and
+                  your baby
                 </p>
               </>
             }
@@ -68,17 +66,19 @@ export default function Home({ listings }: { listings: ListingType[] }) {
         <div className={styles.section}>
           <TextAndBackground
             isRight
-            alt="Unicornia dreams collection"
-            image={'/images/about.jpg'}
-            title="Collections"
-            linkLabel="See collection"
-            linkHref={PAGES.collections.getUrl()}
+            alt="Unicornia Dreams"
+            image={'/images/about_2.jpg'}
+            title="My story"
+            linkLabel="Read my story"
+            linkHref={PAGES.about.getUrl()}
             description={
               <>
                 <p>
-                  Here is our collection. I create plush sea animals and baby
-                  mobiles. And I hope our toys and decor will delight you and
-                  your baby
+                  My name is Alena! All my life I lived in a huge noisy
+                  metropolis, but my soul always dreamed of the sea. And then my
+                  family and I decided to move to the small sunny town of Anapa.
+                  This city is located on the shores of the Black Sea and it is
+                  the best place for creativity!
                 </p>
               </>
             }
