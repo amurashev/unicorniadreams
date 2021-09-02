@@ -969,5 +969,35 @@
       ],
       "description": "This lifelike bats will be a wonderful decor for your Halloween party. They have a wire on their wings and legs and can hang from a rope, a tree branch or wherever you like. Make your Halloween a little scarier and more fun!"
     }
+  },
+  "1077595175": {
+    "isOn": true,
+    "order": 110,
+    "slug": "cute-ghosts-halloween-felt-garland",
+    "meta": {
+      "h1": "Cute Ghosts Halloween Felt Garland / Pumpkin Garland",
+      "keywords": [
+        "Cute Ghosts Halloween Felt Garland",
+        "Pumpkin Garland",
+        "Halloween Party Decoration"
+      ],
+      "description": "This garland would make the perfect addition in your home during Halloween, esp. for a house party. It is perfect to decorate any room."
+    }
+  },
+  "1063624040": {
+    "isOn": true,
+    "order": 110,
+    "slug": "halloween-felt-garland-pumpkin-garland",
+    "meta": {
+      "h1": "Ghost / Pumpkin, Black Bat Halloween Felt Garland",
+      "keywords": [
+        "Halloween Felt Garland",
+        "Pumpkin Garland",
+        "Ghost Garland",
+        "Black Bat Halloween Garland",
+        "Halloween Party Decoration"
+      ],
+      "description": "This garland would make the perfect addition in your home during Halloween, esp. for a house party. It is perfect to decorate any room."
+    }
   }
 }
