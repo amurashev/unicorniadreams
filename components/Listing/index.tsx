@@ -17,7 +17,7 @@ export default function ListingComponent({ item }: Props) {
           <div className={styles.best}>
             <IconBest />
             Best Seller
-            </div>
+          </div>
         )}
         <Image
           src={item.mainImage.large}

@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import ListingList from '../../../components/ListingList'
-import { IconChevronLeft } from '../../../components/Icons'
+import ListingList from '../../ListingList'
+import { IconChevronLeft } from '../../Icons'
 import { CATEGORIES_ID } from '../../../constants'
 import pages from '../../../data/pages'
 import { CategoryType, ListingType } from '../../../types'
@@ -28,7 +28,7 @@ export default function Catalog({
           layout="fill"
           alt={`${category.title} image`}
         />
-        <div className={styles.fader}></div>
+        <div className={styles.fader} />
         <div className={styles.imageInnerBox}>
           <div className={styles.titleBox}>
             <h1

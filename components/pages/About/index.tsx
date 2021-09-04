@@ -1,4 +1,4 @@
-import TextAndBackground from '../../../components/TextAndBackground'
+import TextAndBackground from '../../TextAndBackground'
 
 import styles from './styles.module.scss'
 
@@ -10,7 +10,7 @@ export default function About() {
       <div className={styles.section}>
         <TextAndBackground
           alt="Unicornia Dreams"
-          image={'/images/categories/32651447.jpg'}
+          image="/images/categories/32651447.jpg"
           description={
             <>
               <p>My name is Alena!</p>

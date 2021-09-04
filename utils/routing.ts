@@ -1,4 +1,8 @@
-export const addParamsToString = (str: string, params?: {}) => {
+type Params = {
+  [key: string]: string
+}
+
+export const addParamsToString = (str: string, params?: Params) => {
   const re = /\[(\w+)\]?/g
 
   if (params && Object.keys(params)) {
@@ -21,7 +25,7 @@ export type RouteData = {
 
 export type BaseRoute = {
   // index?: RouteData['index']
-  getUrl(opt?: {}): string
+  getUrl(params?: Params): string
 }
 
 export const route = (pathname: string): BaseRoute => {

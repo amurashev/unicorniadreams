@@ -12,7 +12,6 @@ type Props = {
   linkLabel?: string
   linkHref?: string
   description: React.ReactNode
-  children?: React.ReactNode
 }
 export default function TextAndBackground({
   alt,
@@ -22,7 +21,6 @@ export default function TextAndBackground({
   linkLabel,
   linkHref,
   isRight,
-  children,
 }: Props) {
   return (
     <section className={isRight ? styles.boxIsRight : styles.box}>

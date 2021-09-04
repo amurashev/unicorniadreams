@@ -1,6 +1,7 @@
-import { CATEGORIES_ID } from "../constants"
+import { CATEGORIES_ID } from '../constants'
 
 export type Image = {
+  id: string
   small: string
   medium: string
   large: string

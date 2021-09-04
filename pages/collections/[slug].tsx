@@ -37,19 +37,19 @@ export async function getStaticProps({ params }) {
     let bs = 0
 
     if (Number(b.isBest) > Number(a.isBest)) {
-      bs +=100
+      bs += 100
     }
 
     if (Number(b.isBest) < Number(a.isBest)) {
-      as +=100
+      as += 100
     }
 
     if (b.numFavorers > a.numFavorers) {
-      bs +=10
+      bs += 10
     }
 
     if (b.numFavorers < a.numFavorers) {
-      as +=10
+      as += 10
     }
 
     return bs - as

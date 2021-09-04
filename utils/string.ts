@@ -1,8 +1,11 @@
-export const convertObjectToGetString = (obj: object, prefix?: string) => {
+export const convertObjectToGetString = (
+  obj: { [key: string]: number | string },
+  prefix?: string
+) => {
   const str = []
-  let param
 
-  for (param in obj) {
+  Object.keys(obj).forEach((param) => {
+    /* istanbul ignore else */
     if (Object.prototype.hasOwnProperty.call(obj, param)) {
       const key = prefix ? `${prefix}[${param}]` : param
       const value = obj[param]
@@ -18,7 +21,7 @@ export const convertObjectToGetString = (obj: object, prefix?: string) => {
 
       str.push(decodedValue)
     }
-  }
+  })
 
   return str.join('&')
 }

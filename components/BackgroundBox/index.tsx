@@ -18,11 +18,9 @@ export default function BackgroundBox({
   return (
     <div className={styles.bgBox}>
       <Image src={image} layout="fill" alt={alt} />
-      {hasFader && <div className={styles.fader}></div>}
-      
-      <div className={styles.content}>
-        {children}
-      </div>
+      {hasFader && <div className={styles.fader} />}
+
+      <div className={styles.content}>{children}</div>
     </div>
   )
 }

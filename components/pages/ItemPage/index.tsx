@@ -3,13 +3,13 @@ import SwipeableViews from 'react-swipeable-views'
 import Image from 'next/image'
 
 import CONFIG from '../../../data/config.json'
-import ListingList from '../../../components/ListingList'
+import ListingList from '../../ListingList'
 import {
   IconChevronLeft,
   IconChevronDown,
   IconGift,
   IconShipping,
-} from '../../../components/Icons'
+} from '../../Icons'
 import { CategoryType, ListingType } from '../../../types'
 
 import styles from './styles.module.scss'
@@ -32,7 +32,12 @@ const Section = ({
 
   return (
     <section className={styles.sectionBox}>
-      <div className={styles.sectionTitleBox} onClick={() => toggle(!_isShown)}>
+      <div
+        className={styles.sectionTitleBox}
+        onClick={() => toggle(!_isShown)}
+        role="button"
+        tabIndex={0}
+      >
         <div
           className={
             _isShown ? styles.sectionArrow : styles.sectionArrowRotated
@@ -77,9 +82,9 @@ export default function ItemPage({
     <div className={styles.container}>
       <div className={styles.imagesMobile}>
         <SwipeableViews>
-          {listing.images.map((item, key) => (
-            <div key={key} className={styles.imageBoxMobile}>
-              <div key={key} className={styles.imageBoxMobileInner}>
+          {listing.images.map((item) => (
+            <div key={item.id} className={styles.imageBoxMobile}>
+              <div className={styles.imageBoxMobileInner}>
                 <Image src={item.large} layout="fill" alt={`${h1} image`} />
               </div>
             </div>
@@ -90,8 +95,8 @@ export default function ItemPage({
       <div className={styles.secondLine}>
         <div className={styles.leftSide}>
           <div className={styles.imagesDesktop}>
-            {listing.images.map((item, key) => (
-              <div key={key} className={styles.imageItemFull}>
+            {listing.images.map((item) => (
+              <div key={item.id} className={styles.imageItemFull}>
                 <div className={styles.imageBox}>
                   <Image
                     alt={`${h1} image`}
@@ -137,7 +142,7 @@ export default function ItemPage({
                     mobile.
                   </p>
                   <p>
-                    Mobile should be used only for decoration. It's not a
+                    Mobile should be used only for decoration. It&apos;s not a
                     contact toy.
                   </p>
                   <p>
@@ -174,16 +179,17 @@ export default function ItemPage({
               Delivery usually takes {CONFIG.shippingDetails.transitTime.min} to{' '}
               {CONFIG.shippingDetails.transitTime.max} business days, but keep
               in mind that delivery time may be extended for some countries due
-              to customs (especially holidays time). I’ll give you tracking
+              to customs (especially holidays time). I&apos;ll give you tracking
               information once your package is shipped, so you can track your
               package.
             </Section>
 
             {listing.categoryId === CATEGORIES_ID.MOBILE ? (
               <Section title="Gift Wrapping" icon={<IconGift />}>
-                You don't have to pay for gift wrapping. It’s free! Every mobile
-                is carefully packed in a beautiful craft box, inside there is a
-                tissue paper and a post card with a stunning illustration
+                You don&apos;t have to pay for gift wrapping. It&apos;s free!
+                Every mobile is carefully packed in a beautiful craft box,
+                inside there is a tissue paper and a post card with a stunning
+                illustration
               </Section>
             ) : (
               <Section title="Gift" icon={<IconGift />}>
@@ -197,7 +203,7 @@ export default function ItemPage({
               <Section title="Measurements">
                 <>
                   {listing.measurements.map((item) => (
-                    <div>
+                    <div key={item.value}>
                       {item.label}:{' '}
                       <span className={styles.value2}>{item.value}</span>
                     </div>

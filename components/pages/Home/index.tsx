@@ -2,17 +2,17 @@ import CONFIG from '../../../data/config.json'
 import PAGES from '../../../data/pages'
 import { ListingType } from '../../../types'
 
-import ListingList from '../../../components/ListingList'
-import BackgroundBox from '../../../components/BackgroundBox'
-import TextAndBackground from '../../../components/TextAndBackground'
-import { IconChevronDown } from '../../../components/Icons'
+import ListingList from '../../ListingList'
+import BackgroundBox from '../../BackgroundBox'
+import TextAndBackground from '../../TextAndBackground'
+import { IconChevronDown } from '../../Icons'
 
 import styles from './styles.module.scss'
 
 export default function Home({ listings }: { listings: ListingType[] }) {
   return (
     <div className={styles.box}>
-      <BackgroundBox alt={`todo`} image={'/images/main-bg.jpg'} hasFader>
+      <BackgroundBox alt="todo" image="/images/main-bg.jpg" hasFader>
         <div className={styles.bgContent}>
           <div className={styles.headerSite}>
             <div className={styles.siteName}>{CONFIG.brandName}</div>
@@ -36,7 +36,7 @@ export default function Home({ listings }: { listings: ListingType[] }) {
         <div className={styles.section}>
           <TextAndBackground
             alt="Unicornia dreams collection"
-            image={'/images/about.jpg'}
+            image="/images/about.jpg"
             title="Collections"
             linkLabel="See collection"
             linkHref={PAGES.collections.getUrl()}
@@ -67,7 +67,7 @@ export default function Home({ listings }: { listings: ListingType[] }) {
           <TextAndBackground
             isRight
             alt="Unicornia Dreams"
-            image={'/images/about_2.jpg'}
+            image="/images/about_2.jpg"
             title="My story"
             linkLabel="Read my story"
             linkHref={PAGES.about.getUrl()}

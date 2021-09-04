@@ -7,8 +7,6 @@ import Header from '../Header'
 
 import styles from './styles.module.scss'
 
-
-
 type Props = {
   children: React.ReactChild | React.ReactChild[]
   title: string
@@ -77,7 +75,7 @@ export default function Layout({
       </Head>
 
       <Header isLight={isLight} />
-     
+
       <main className={styles.content}>{children}</main>
 
       <footer className={styles.footer}>

@@ -61,7 +61,7 @@ export async function getStaticProps(context) {
     await sleep(2000)
 
     category = mapCategory(section)
-    const listings = category.listings
+    const { listings } = category
 
     let indexOfCurrentElement = 0
     listings.forEach((item, i) => {
@@ -104,7 +104,7 @@ export default function Item({
   const daysCountFrom = CONFIG.shippingDetails.transitTime.min
   const daysCountTo = CONFIG.shippingDetails.transitTime.max
 
-  const options = { month: 'short' as 'short', day: 'numeric' as 'numeric' }
+  const options = { month: 'short' as const, day: 'numeric' as const }
   const dateFrom = new Intl.DateTimeFormat('en-US', options).format(
     from.setDate(today.getDate() + daysCountFrom)
   )

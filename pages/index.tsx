@@ -2,7 +2,7 @@ import Head from 'next/head'
 import META from '../data/meta.json'
 
 import { getShopActiveListings } from '../utils/etsy'
-import { mapListing, mapCategory } from '../utils/data'
+import { mapListing } from '../utils/data'
 import { getIsRawListingCorrect } from '../utils/helpers'
 
 import Layout from '../components/Layout'
@@ -51,10 +51,7 @@ export default function HomePage({ listings }) {
         isLight
       >
         <Head>
-          <meta
-            property="og:image"
-            content={'/images/categories/32651447.jpg'}
-          />
+          <meta property="og:image" content="/images/categories/32651447.jpg" />
         </Head>
 
         <Home listings={listings} />

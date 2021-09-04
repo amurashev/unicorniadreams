@@ -5,7 +5,12 @@ const API_URL = 'https://openapi.etsy.com/v2'
 const API_KEY = process.env.ETSY_API_KEY_STRING
 const SHOP_ID = '21006026'
 
-const EtsyRequest = async (url: string, data?: {}) => {
+type RequestData = {
+  includes?: string
+  limit?: number
+}
+
+const EtsyRequest = async (url: string, data?: RequestData) => {
   const newData = {
     api_key: API_KEY,
     ...data,
@@ -13,7 +18,7 @@ const EtsyRequest = async (url: string, data?: {}) => {
 
   const getParams = convertObjectToGetString(newData)
 
-  return await request(`${API_URL}${url}?${getParams}`)
+  return request(`${API_URL}${url}?${getParams}`)
 }
 
 export const getShop = async () => {
@@ -41,17 +46,13 @@ export const getShopSection = async (sectionId: number) => {
   return response.results[0]
 }
 
-
 export const getShopActiveListings = async () => {
   const data = {
     includes: ['MainImage'].join(','),
     limit: 75,
   }
 
-  const response = await EtsyRequest(
-    `/shops/${SHOP_ID}/listings/active`,
-    data
-  )
+  const response = await EtsyRequest(`/shops/${SHOP_ID}/listings/active`, data)
 
   return response.results
 }
@@ -69,7 +70,6 @@ export const getShopFeaturedListings = async () => {
 
   return response.results
 }
-
 
 export const getListing = async (listingId: number) => {
   const data = {
@@ -101,13 +101,15 @@ export const getListingInventory = async (listingId: number) => {
   return response.results
 }
 
-
 export const getListingShippingInfo = async (listingId: number) => {
   const data = {
     includes: [''].join(','),
   }
 
-  const response = await EtsyRequest(`/listings/${listingId}/shipping/info`, data)
+  const response = await EtsyRequest(
+    `/listings/${listingId}/shipping/info`,
+    data
+  )
 
   return response.results
 }

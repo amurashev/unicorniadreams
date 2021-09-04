@@ -1,4 +1,4 @@
-const request = async (url: string, options?: object) => {
+const request = async (url: string, options?: any) => {
   const response = await fetch(url, options)
 
   if (response.status >= 200 && response.status < 300) {

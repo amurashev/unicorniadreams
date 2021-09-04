@@ -1,11 +1,12 @@
 import CATEGORIES from '../data/categories.json'
 import LISTINGS from '../data/listings.json'
 
-import { ListingType, CategoryType } from '../types'
+import { ListingType, CategoryType } from '../types/index'
 import { getIsRawListingCorrect } from './helpers'
 
 export const mapImage = (raw: any) => {
-  let image = {
+  const image = {
+    id: raw.listing_image_id,
     small: raw.url_75x75,
     medium: raw.url_170x135,
     large: raw.url_570xN,
@@ -14,9 +15,9 @@ export const mapImage = (raw: any) => {
     sizes: {
       large: {
         width: 570,
-        height: Math.round(570 * raw.full_height / raw.full_width),
+        height: Math.round((570 * raw.full_height) / raw.full_width),
       },
-    }
+    },
   }
 
   return image
@@ -65,7 +66,7 @@ export const mapListing = (raw: any): ListingType => {
       order: fixedData.order || 0,
       measurements: fixedData.measurements || null,
       slug: fixedData.slug,
-      url: '/items/' + fixedData.slug,
+      url: `/items/${fixedData.slug}`,
       meta: fixedData.meta,
     }
   }
@@ -94,7 +95,6 @@ export const mapCategory = (raw: any): CategoryType => {
       .filter((item) => item.isOn)
   }
 
-
   const fixedData = CATEGORIES[id]
 
   if (fixedData) {
@@ -104,7 +104,7 @@ export const mapCategory = (raw: any): CategoryType => {
       order: fixedData.order,
       title: fixedData.title,
       slug: fixedData.slug,
-      url: '/collections/' + fixedData.slug,
+      url: `/collections/${fixedData.slug}`,
       meta: fixedData.meta,
       mainImage: {
         // large: require(`../images/categories/${id}.jpg`).default,
@@ -116,7 +116,7 @@ export const mapCategory = (raw: any): CategoryType => {
 }
 
 export const mapShippingInfo = (raw: any) => {
-  let data = {
+  const data = {
     id: raw.shipping_info_id,
     currencyCode: raw.currency_code,
     destinationCountryId: raw.destination_country_id,

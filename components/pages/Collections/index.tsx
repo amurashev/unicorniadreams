@@ -1,4 +1,4 @@
-import TextAndBackground from '../../../components/TextAndBackground'
+import TextAndBackground from '../../TextAndBackground'
 
 import { CategoryType } from '../../../types'
 import PAGES from '../../../data/pages'
@@ -13,12 +13,11 @@ export default function Collections({
   return (
     <div className={styles.content}>
       {categories.map((item, key) => (
-        <div className={key % 2 === 1 ? styles.boxBg : null}>
+        <div key={item.id} className={key % 2 === 1 ? styles.boxBg : null}>
           <div className={styles.section}>
             <TextAndBackground
-              key={key}
               isRight={key % 2 === 1}
-              alt={`todo`}
+              alt="todo"
               image={item.mainImage.large}
               title={item.title}
               linkLabel="See collection"

@@ -30,10 +30,7 @@ export default function CollectionsPage({ categories }) {
         description={META.collections.description}
       >
         <Head>
-          <meta
-            property="og:image"
-            content={'/images/categories/32651447.jpg'}
-          />
+          <meta property="og:image" content="/images/categories/32651447.jpg" />
         </Head>
         <Collections categories={categories} />
       </Layout>
