@@ -4,13 +4,19 @@ import CONFIG from '../data/config.json'
 
 import '../styles/global.scss'
 
+declare global {
+  interface Window {
+    dataLayer: IArguments[]
+    __INITIAL_STATE__: any
+  }
+}
+
 export default function App({ Component, pageProps }) {
   /* eslint-disable react-hooks/exhaustive-deps, no-underscore-dangle, */
   useEffect(() => {
-    // @ts-ignore
-    window.dataLayer = (window as any).dataLayer || []
+    window.dataLayer = window.dataLayer || []
+
     function gtag() {
-      // @ts-ignore
       /* eslint-disable-next-line prefer-rest-params */
       window.dataLayer.push(arguments)
     }
