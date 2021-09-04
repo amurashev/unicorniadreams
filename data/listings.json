@@ -999,5 +999,18 @@
       ],
       "description": "This garland would make the perfect addition in your home during Halloween, esp. for a house party. It is perfect to decorate any room."
     }
+  },
+  "1064810966": {
+    "isOn": true,
+    "order": 110,
+    "slug": "set-of-5-halloween-pins",
+    "meta": {
+      "h1": "Set of 5 Halloween Brooches",
+      "keywords": [
+        "Set of 5 Halloween Brooches",
+        "Halloween Pins"
+      ],
+      "description": "These felt brooches are the perfect halloween gift! Put a brooch on your jacket, sweater or complete your hair for a Halloween mood!"
+    }
   }
 }
