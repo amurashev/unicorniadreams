@@ -41,10 +41,10 @@ export async function getStaticProps(context) {
 
   const data = await getListing(id)
   const listing = mapListing(data)
-  await sleep(2000)
+  await sleep(1000)
 
   const shippingInfoList = await getListingShippingInfo(id)
-  await sleep(2000)
+  await sleep(1000)
 
   const shippingInfoRaw = shippingInfoList.find(
     (item) => !item.destination_country_id
@@ -58,7 +58,7 @@ export async function getStaticProps(context) {
 
   if (listing.categoryId) {
     const section = await getShopSection(listing.categoryId)
-    await sleep(2000)
+    await sleep(1000)
 
     category = mapCategory(section)
     const { listings } = category

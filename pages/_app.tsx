@@ -23,7 +23,7 @@ export default function App({ Component, pageProps }) {
     // @ts-ignore
     gtag('js', new Date())
     // @ts-ignore
-    gtag('config', CONFIG.googleAnalytics.key)
+    gtag('config', CONFIG.googleAnalytics.key2)
 
     // TODO: DEV MODE
     if (true) {
