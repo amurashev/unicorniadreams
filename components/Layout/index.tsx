@@ -68,6 +68,7 @@ export default function Layout({
           name="google-site-verification"
           content="rJnAZHvqGCMOxwOWk5kL4SBbj3baUQu96DZ6-KujDKM"
         />
+        <meta name="yandex-verification" content="546db849e880781b" />
         <script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${CONFIG.googleAnalytics.key}`}
