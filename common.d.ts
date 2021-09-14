@@ -1,6 +1,6 @@
 declare global {
   interface Window {
-    dataLayer: string[]
+    dataLayer: any[]
     __INITIAL_STATE__: any
   }
 }

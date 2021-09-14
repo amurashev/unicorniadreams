@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import SwipeableViews from 'react-swipeable-views'
 import Image from 'next/image'
 
@@ -78,6 +78,14 @@ export default function ItemPage({
   dateFrom: string
   dateTo: string
 }) {
+  const handleBuyClick = () => {
+    window.dataLayer.push({ event: 'item.buy', itemId: listing.id })
+  }
+
+  useEffect(() => {
+    window.dataLayer.push({ event: 'item.open', itemId: listing.id })
+  }, [])
+
   return (
     <div className={styles.container}>
       <div className={styles.imagesMobile}>
@@ -129,6 +137,7 @@ export default function ItemPage({
               href={listing.etsyUrl}
               rel="noopener noreferrer"
               className={styles.button}
+              onClick={() => handleBuyClick()}
             >
               Buy on Etsy.com
             </a>

@@ -4,9 +4,11 @@ import CONFIG from '../data/config.json'
 
 import '../styles/global.scss'
 
+type DataLayerEvent = IArguments | { [key: string]: string | number }
+
 declare global {
   interface Window {
-    dataLayer: IArguments[]
+    dataLayer: DataLayerEvent[]
     __INITIAL_STATE__: any
   }
 }
